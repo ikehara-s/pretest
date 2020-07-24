@@ -195,6 +195,46 @@ function sortQuestion(){
 	pushChoice('ステートレスアラートは自動的にクリアされます。', false);
 	pushChoice('ステートフルアラートは、アラート履歴から自動的に削除されます。', false);
 	sortChoice();
+	
+	//=============================================================================
+	// 9
+	//=============================================================================
+	q_list.push(new Question('環境変数を使用して配置されているものとして正しい説明を3つ選択しなさい。',
+	''));
+	pushChoice('Oracleソフトウェアおよび構成ファイルを格納するためのOptimal Flexible Architecture（OFA）準拠のパス。', true);
+	pushChoice('Oracle Net Services構成ファイルの場所。', true);
+	pushChoice('起動時にOracle自動ストレージ管理（ASM）インスタンスによってマウントされるディスク・グループ名のリスト。', false);
+	pushChoice('一時テーブルスペースで使用される一時ファイルのデフォルトディレクトリ。', false);
+	pushChoice('インストール中にOracle Installerによって使用される一時ディスク領域。', true);
+	pushChoice('データベースインスタンスで開くことができるデータベースファイルの最大数。', false);
+	sortChoice();
+
+	//=============================================================================
+	// 10
+	//=============================================================================
+	q_list.push(new Question('OPatchAutoについて正しい説明を3つ選択しなさい。',
+	'答えは3つ'));
+	pushChoice('パッチ適用プロセス中に、Oracle Grid InfrastructureとOracle Databaseホームの両方のすべてのプロセスのシャットダウンおよび再起動が実行されます。', true);
+	pushChoice('rootユーザー権限を持つユーザーが呼び出す必要があります。', true);
+	pushChoice('パッチはopatchautoを介して適用されます。', true);
+	pushChoice('ユーザーは常にパッチプランをopatchautoに入力する必要があります。', false);
+	pushChoice('Oracle Grid InfrastructureおよびOracle Databaseインスタンスを起動する前に停止する必要があります。', false);
+	pushChoice('デフォルトでは、非ローリングモードでパッチを適用します。', false);
+	pushChoice('これは、Oracle Grid InfrastructureとOracle Databaseホームの組合せに個別パッチを適用するために使用されます。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 11
+	//=============================================================================
+	q_list.push(new Question('Oracleデータベースで使用される文字セットについて正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('シングルバイト文字セットは、マルチバイト文字セットよりも優れたパフォーマンスを提供します。', true);
+	pushChoice('Unicodeでは、任意の言語の情報を単一の文字セットを使用して格納できます。', true);
+	pushChoice('Unicodeは、Database Configuration Assistant（DBCA）を使用して作成されたOracleデータベースでサポートされる唯一の文字セットです。', false);
+	pushChoice('シングルバイト文字セットは常に7ビットのコード化スキームを使用します。', false);
+	pushChoice('マルチバイト文字セットを使用すると、シングルバイト文字セットよりもスペースを効率的に使用できます。', false);
+	pushChoice('シングルバイト文字セットは常に8ビットのコード化スキームを使用します。', false);
+	sortChoice();
 }());
 
 (function(){
