@@ -44,7 +44,7 @@ function nextScene(){
 function showQuestion(){
     scene = 'answer';
     document.getElementById('question').value = q_list[q_index].content;
-    for(var i = 0; i < 7; i ++){
+    for(var i = 0; i < 8; i ++){
         document.getElementById('answer_' + i).value = '';
         document.getElementById('answer_' + i).style.background = '#ffffff';
     }
@@ -60,7 +60,7 @@ function pushAnswer(){
 
 function showAnswer(){
     scene = 'question';
-    for(var i = 0; i < 7; i ++){
+    for(var i = 0; i < 8; i ++){
         if(i < q_list[q_index].choice.length){
             if(q_list[q_index].choice[i].answer){
                 document.getElementById('answer_' + i).style.background = '#ccffcc';
