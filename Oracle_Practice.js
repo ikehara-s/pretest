@@ -132,6 +132,57 @@ function sortQuestion(){
 	pushChoice('PDBに接続するときに一時表領域を除外します。', false);
 	pushChoice('CDBシードからPDBを作成するときに含める表領域のリストを指定します。', false);
 	sortChoice();
+	
+	//=============================================================================
+	// 4
+	//=============================================================================
+	q_list.push(new Question('さまざまなFLASHBACK操作の要件について正しい説明を3つ選択しなさい。',
+	''));
+	pushChoice('FLASHBACKトランザクションコマンドでは、2つの時点の間に存在していた行のすべてのバージョンを取得するために、UNDO情報が必要です。', true);
+	pushChoice('FLASHBACKドロップでは、RECYCLEBINパラメータをONに設定する必要があります。', true);
+	pushChoice('FLASHBACKバージョンコマンドでは、RECYCLEBINパラメータをONに設定する必要があります。', false);
+	pushChoice('FLASHBACK DATA ARCHIVEは、追跡されているテーブルのすべての行のすべてのバージョンを保存するために、UNDO情報が必要です。', false);
+	pushChoice('FLASHBACKドロップでは、2つの時点の間に存在していた行のすべてのバージョンを取得するために、UNDO情報が必要です。', false);
+	pushChoice('FLASHBACKバージョンクエリでは、2つの時点の間に存在していた行のすべてのバージョンを取得するために、UNDO情報が必要です。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 5
+	//=============================================================================
+	q_list.push(new Question('Oracle Grid Infrastructure用のOracle Preinstallaiont RPM oracle-database-server-xxxx-preinstallによって実行される3つのアクションはどれですか。',
+	''));
+	pushChoice('Oracle Grid Infrastructureの最小構成要件が満たされていることを確認するためのチェックの実行。', false);
+	pushChoice('Oracle OSユーザーの作成。', true);
+	pushChoice('OSDBA（dba）グループの作成。', true);
+	pushChoice('oraInventory（oinstall）グループの作成。', true);
+	pushChoice('Grid OSユーザーの作成。', false);
+	pushChoice('Oracle自動ストレージ管理共有ストレージ・アクセス用のOSの構成。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 6
+	//=============================================================================
+	q_list.push(new Question('共有オブジェクトについて正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('CDB$ROOTでのみ作成できます。', false);
+	pushChoice('これらは、アプリケーションコンテナ内でのみメタデータにリンクできます。', false);
+	pushChoice('これらは、アプリケーションコンテナ内のユーザー定義スキーマにのみ存在できます。', false);
+	pushChoice('これらは、CDB$ROOTおよびアプリケーションルートに存在できます。', true);
+	pushChoice('これらは、CDB$ROOTで拡張データリンクできます。', false);
+	pushChoice('これらは、アプリケーションルートでのみ作成できます。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 7
+	//=============================================================================
+	q_list.push(new Question('自動データベース診断モニター（ADDM）について正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('12時間のアクティビティに対応する期間を分析します。', false);
+	pushChoice('各AWRスナップショットの後に自動的に実行されます。', true);
+	pushChoice('DBAは手動で実行できます。', true);
+	pushChoice('結果はアラートログに書き込まれます。', false);
+	pushChoice('前日の活動に対応する期間を分析します。', false);
+	sortChoice();
 }());
 
 (function(){
