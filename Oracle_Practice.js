@@ -243,9 +243,9 @@ function sortQuestion(){
 	''));
 	pushChoice('V$SESSION_EVENTは、セッションで少なくとも1回待機が発生した場合、過去および既存のすべてのセッションの待機をすべて表示する。', false);
 	pushChoice('V$SERVICE_EVENTは、サービスに対して少なくとも1回待機が発生した場合、すべてのサービスのすべての待機を表示する。', true);
-	pushChoice('V$SESSION_WAIT_CLASSは、待機中のセッションについてのみ、待機クラスごとに分類された待機を表示する。', true);
+	pushChoice('V$SESSION_WAIT_CLASSは、待機中のセッションについてのみ、待機クラスごとに分類された待機を表示する。', false);
 	pushChoice('V$SESSION_WAITとV$SESSIONの両方に、待機していないセッションが最後に待機したイベントの詳細が含まれている。', false);
-	pushChoice('V$SESSION_EVENTは、セッションで少なくとも1回待機が発生した場合、過去のすべてのセッションの待機をすべて表示する。', false);
+	pushChoice('V$SESSION_EVENTは、セッションで少なくとも1回待機が発生した場合、過去のすべてのセッションの待機をすべて表示する。', true);
 	pushChoice('V$SESSION_WAITとV$SESSIONの両方に、セッションが現在待機しているイベントの詳細が含まれている。', true);
 	sortChoice();
 
@@ -375,6 +375,20 @@ function sortQuestion(){
 	pushChoice('分析タスクの各SQLステートメントの実行前後の統計を提供します。', true);
 	pushChoice('分析タスク内のすべてのSQLステートメントをグループとして詳細に分析できます。', true);
 	pushChoice('最初に同時に実行されたSQLステートメントは、SPAによって同時に実行されます。', false);
+	sortChoice();
+
+	//=============================================================================
+	// 21
+	//=============================================================================
+	q_list.push(new Question('ユーザーがデータベースのパフォーマンスの低下について不満を言っています。'
+	+ '\nユーザーのセッションが特定のタイプのI/Oアクティビティを待機しているかどうかを確認したいとします。'
+	+ '\nセッションで少なくとも1回待機したすべての待機を表示するビューはどれですか？',
+	''));
+	pushChoice('V$SESSION_EVENT', true);
+	pushChoice('V$SESSTAT', false);
+	pushChoice('V$SESSION_WAIT', false);
+	pushChoice('V$SESSION_WAIT_CLASS', false);
+	pushChoice('V$SESSION', false);
 	sortChoice();
 }());
 
