@@ -390,6 +390,91 @@ function sortQuestion(){
 	pushChoice('V$SESSION_WAIT_CLASS', false);
 	pushChoice('V$SESSION', false);
 	sortChoice();
+
+	//=============================================================================
+	// 22
+	//=============================================================================
+	q_list.push(new Question('オプティマイザ統計の収集に関して正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('CDB$ROOTに接続しているときにDBMS_STATS.GATHER_DATABASE_STATSを実行すると、PDB$SEEDを除くすべての開いているPDBのオブジェクト統計が収集されます。', false);
+	pushChoice('読み取り/書き込みモードで開かれたPDBに接続されている間にDBMS_STATS.GATHER_DATABASE_STATSを実行すると、そのPDBのオブジェクト統計が収集されます。', true);
+	pushChoice('CDB$ROOTに接続している間にDBMS_STATS.GATHER_DATABASE_STATSを実行すると、CDB$ROOT内のオブジェクト統計のみが収集されます。', true);
+	pushChoice('システム統計は、CDB$ROOTに接続している間のみ収集できます。', false);
+	pushChoice('CDB$ROOTに接続しているときにDBMS_STATS.GATHER_DATABASE_STATSを実行すると、開いているすべてのプラガブルデータベース（PDB）のオブジェクト統計が収集されます。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 23
+	//=============================================================================
+	q_list.push(new Question('このコマンドについて調べます。'
+	+ '\n'
+	+ '\nSQL> select pluggable_database, shares, parallel_server_limit'
+	+ '\n  2  from dba_cdb_rsrc_plan_directives where plan = 'MY_PLAN''
+	+ '\n  3  order by pluggable_database;'
+	+ '\n'
+	+ '\nPLUGGABLE_DATABASE         SHARES    PARALLEL_SERVER_LIMIT'
+	+ '\n-------------------------- --------- -------------------------'
+	+ '\nORA$AUTOTASK                                              100'
+	+ '\nORA$DEFAULT_PDB_DIRECTIVE         1                         0'
+	+ '\nPDB1                              2                       100'
+	+ '\nPDB2                              2                        25'
+	+ '\nPDB3                              1'
+	+ '\n'
+	+ '\nSQL> select name, value from v$parameter'
+	+ '\n  2  where name = 'resource_manager_plan';'
+	+ '\n'
+	+ '\nNAME                   VALUE'
+	+ '\n---------------------- --------'
+	+ '\nresource_manager_plan  MY_PLAN'
+	+ '\n'
+	+ '\n正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('プランで指定されていないPDBは、ステートメントを並行して実行できません。', false);
+	pushChoice('PDB3は、利用可能なすべての並列実行プロセスを時々使用できます。', true);
+	pushChoice('PDB1は、需要に関係なく、常に利用可能なシステムリソースの40％に制限されています。', false);
+	pushChoice('プランで指定されていないPDBは、使用可能なシステムリソースの最大16.5％を使用できます。', false);
+	pushChoice('PDB3は、十分な需要がある場合、利用可能なシステムリソースの少なくとも20％を受け取ることが保証されています。', true);
+	pushChoice('PDB2は、十分な需要がある場合、使用可能な並列実行プロセスの少なくとも25％が保証されています。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 24
+	//=============================================================================
+	q_list.push(new Question('Oracle Database 19c以降のオペレーティングシステムスクリプトの実行について正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('orainstRoot.shは、sudoまたはroot資格情報を使用して、データベースインストーラーによって自動的に実行できます。', true);
+	pushChoice('root.shは、root資格情報が提供されている場合にのみ、データベースインストーラーによって自動的に実行できます。', false);
+	pushChoice('sudoパスワードは、レスポンスファイルで指定できます。', false);
+	pushChoice('root.shは、sudo資格情報を使用することによってのみ、データベースインストーラーによって自動的に実行できます。', false);
+	pushChoice('sudoパスワードは、レスポンスファイルで指定する必要があります。', false);
+	pushChoice('rootパスワードをレスポンスファイルで指定することはできません。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 25
+	//=============================================================================
+	q_list.push(new Question('自動共有メモリ管理は、データベースインスタンスの1つに対して無効になっています。'
+	+ '\n一部のSQLステートメントは、過度のハード解析アクティビティが原因でパフォーマンスが低下し、パフォーマンスが低下します。'
+	+ '\n次のすべき行動として正しいものを選択しなさい。',
+	''));
+	pushChoice('SQLアクセスアドバイザを実行します。', false);
+	pushChoice('共有プールのメモリアドバイザを実行します。', true);
+	pushChoice('SQLチューニングアドバイザを実行します。', false);
+	pushChoice('PGAのメモリアドバイザーを実行します。', false);
+	pushChoice('SGAのメモリアドバイザーを実行します。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 26
+	//=============================================================================
+	q_list.push(new Question('Oracle Database 19c以降のリリースのフラッシュバック機能について正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('フラッシュバックログは、DB_FLASHBACK_RETENTION_TARGETがすでに保持されている時間よりも低く設定されると、自動的にパージされます。', true);
+	pushChoice('フラッシュバックログは監視され、DB_FLASHBACK_RETENTION_TARGETで定義された保持期間を過ぎると、領域の圧迫があった場合にのみ、事前に削除されます。', true);
+	pushChoice('フラッシュバックログは監視され、DB_FLASHBACK_RETENTION_TARGETで定義された保存期間を過ぎると、領域の圧迫が発生する前に事前に削除されます。', false);
+	pushChoice('フラッシュバックログは、DB_FLASHBACK_RETENTION_TARGETで定義された保持期間よりも古いものとして監視され、管理者が作成したイベントトリガーによって削除できます。', false);
+	pushChoice('フラッシュバックログは、DB_FLASHBACK_RETENTION_TARGETの値が変更されるたびに自動的にパージされます。', false);
+	sortChoice();
 }());
 
 (function(){
