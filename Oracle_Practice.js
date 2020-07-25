@@ -409,7 +409,7 @@ function sortQuestion(){
 	q_list.push(new Question('このコマンドについて調べます。'
 	+ '\n'
 	+ '\nSQL> select pluggable_database, shares, parallel_server_limit'
-	+ '\n  2  from dba_cdb_rsrc_plan_directives where plan = 'MY_PLAN''
+	+ '\n  2  from dba_cdb_rsrc_plan_directives where plan = "MY_PLAN"'
 	+ '\n  3  order by pluggable_database;'
 	+ '\n'
 	+ '\nPLUGGABLE_DATABASE         SHARES    PARALLEL_SERVER_LIMIT'
@@ -421,7 +421,7 @@ function sortQuestion(){
 	+ '\nPDB3                              1'
 	+ '\n'
 	+ '\nSQL> select name, value from v$parameter'
-	+ '\n  2  where name = 'resource_manager_plan';'
+	+ '\n  2  where name = "resource_manager_plan";'
 	+ '\n'
 	+ '\nNAME                   VALUE'
 	+ '\n---------------------- --------'
@@ -488,7 +488,7 @@ function sortQuestion(){
 	+ '\nARCHIVELOG'
 	+ '\n'
 	+ '\nSQL> select property_name, property_value'
-	+ '\n  2  from database_properties where property_name like '%UNDO%';'
+	+ '\n  2  from database_properties where property_name like "%UNDO%";'
 	+ '\n'
 	+ '\nPROPERTY_NAME       PROPERTY_NAME'
 	+ '\n------------------- --------------'
@@ -521,7 +521,7 @@ function sortQuestion(){
 	+ '\nERROR at line 1:'
 	+ '\nORA-01157: cannot identify/lock data file 24 - see DBWR trace file'
 	+ '\nORA-01110: data file 24:'
-	+ '\n'/u01/oradata/V122CDB1/516000726D464D04E054000C29704164/datafile/o1_mf_system_dmj30kld_.dbf''
+	+ '\n"/u01/oradata/V122CDB1/516000726D464D04E054000C29704164/datafile/o1_mf_system_dmj30kld_.dbf"'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
 	''));
@@ -632,16 +632,16 @@ function sortQuestion(){
 	+ '\nSQL> ALTER SESSION SET CONTAINER=pdb1;'
 	+ '\nSession altered.'
 	+ '\n'
-	+ '\nSQL> INSERT INTO user1.emp VALUES(100, 'Alan', 1);'
+	+ '\nSQL> INSERT INTO user1.emp VALUES(100, "Alan", 1);'
 	+ '\n1 row created.'
 	+ '\n'
-	+ '\nSQL> INSERT INTO user1.emp VALUES(101, 'Ben', 1);'
+	+ '\nSQL> INSERT INTO user1.emp VALUES(101, "Ben", 1);'
 	+ '\n1 row created.'
 	+ '\n'
 	+ '\nSQL> ALTER SESSION SET CONTAINER=pdb2;'
 	+ '\nSession altered.'
 	+ '\n'
-	+ '\nSQL> INSERT INTO user2.dept VALUES(1, 'IT');'
+	+ '\nSQL> INSERT INTO user2.dept VALUES(1, "IT");'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
 	''));
@@ -851,6 +851,101 @@ function sortQuestion(){
 	
 	//=============================================================================
 	// 47
+	//=============================================================================
+	q_list.push(new Question('Orcale 18c以降に利用可能となったRapid Home Provisioning（RHP）について正しい正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('Oracle Databaseサービスです。', true);
+	pushChoice('Oracle Databaseホームのアップグレードには使用できません。', false);
+	pushChoice('アプリケーションのプロビジョニングに使用できます。', false);
+	pushChoice('Oracle Restartを含むGrid Infrastructureホームにパッチを適用するために使用できます。', true);
+	pushChoice('ミドルウェアのプロビジョニングに使用できます。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 48
+	//=============================================================================
+	q_list.push(new Question('この構成を調べます。'
+	+ '\n'
+	+ '\n1. CDB1はコンテナーデータベースです。'
+	+ '\n2. 共通ユーザー接頭辞はC##です。'
+	+ '\n3. PDB1は、CDB1に含まれているプラガブルデータベースです。'
+	+ '\n4. APP1_ROOTは、CDB1に含まれているアプリケーションコンテナーです。'
+	+ '\n5. APP1_PDB1は、APP1_ROOTに含まれているアプリケーションPDBです。'
+	+ '\n'
+	+ '\n次のコマンドは正常に実行されました。'
+	+ '\n'
+	+ '\n$ sqlplus sys/oracle_4U@localhost:1521/cdb1 as sysdba'
+	+ '\n'
+	+ '\nSQL> CREATE USER c##user1 identified by oracle_4U container=all;'
+	+ '\nUser created.'
+	+ '\n'
+	+ '\nSQL> ALTER SESSION SET CONTAINER=pdb1;'
+	+ '\nSession altered.'
+	+ '\n'
+	+ '\nSQL> CREATE USER p1_user1 identified by pracle_4U;'
+	+ '\nUser Created.'
+	+ '\n'
+	+ '\nSQL> ALTER SESSION SET CONTAINER=app1_root;'
+	+ '\nSession altered.'
+	+ '\n'
+	+ '\nSQL> ALTER PLUGGABLE DATABASE APPLICATION app1_cdb1_app BEGIN INSTALL "1.0";'
+	+ '\nSession altered.'
+	+ '\n'
+	+ '\nSQL> CREATE USER app1_user1 IDENTIFIED BY oracle_4U;'
+	+ '\nUser Created.'
+	+ '\n'
+	+ '\nSQL> ALTER PLUGGABLE DATABASE APPLICATION app1_cdb1_app end INSTALL "1.0";'
+	+ '\nPluggable database altered.'
+	+ '\n'
+	+ '\n正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('APP1_USER1はPDB1に作成できます。', false);
+	pushChoice('APP1_USER1はCDB1に作成できます。', false);
+	pushChoice('APP1_USER1は、APP1_ROOTに含まれる各アプリケーションPDBで異なる権限を持つことができます。', true);
+	pushChoice('C##APP_USER1はCDB1に作成できます。', true);
+	pushChoice('P1_USER1はCDB1に作成できます。', false);
+	pushChoice('C##USER1は、CDB1のすべてのPDBで同じ特権とロールを付与されます。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 49
+	//=============================================================================
+	q_list.push(new Question('Oracle Database環境で常に考慮または実装する必要があるパフォーマンス計画のファセットとして正しいものを2つ選択しなさい。',
+	''));
+	pushChoice('すべてのテーブルの主キーを定義して、すべてのクエリを高速化する。', true);
+	pushChoice('チェック制約を使用して更新を高速化する。', false);
+	pushChoice('結合を高速化するためにすべてのテーブルの外部キーを定義する。', false);
+	pushChoice('物理データモデル。', true);
+	pushChoice('外部ストレージ構成。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 50
+	//=============================================================================
+	q_list.push(new Question('Database Upgrade Assistant（DBUA）によって実行される3つのアクションはどれですか？',
+	''));
+	pushChoice('utlrp.sqlを使用して、保存されているすべてのPL / SQLコードを再コンパイルします。', false);
+	pushChoice('ごみ箱を空にします。', true);
+	pushChoice('前提条件チェックを実行して、Oracleデータベースがアップグレードの準備ができているかどうかを確認します。', true);
+	pushChoice('アップグレードを開始する前に、すべてのユーザーテーブルスペースを「読み取り専用」に設定します。', false);
+	pushChoice('AUDSYSスキーマとAUDIT_ADMINおよびAUDIT_VIEWERロールを削除します。', false);
+	pushChoice('必要に応じて、アップグレード要件を満たすためにテーブルスペースのサイズを増やします。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 51
+	//=============================================================================
+	q_list.push(new Question('テープドライブが2つしかない場合に、メディアマネージャーを使用してバックアップをテープに書き込むときのRMANバックアップについて正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('RMAN圧縮が構成されていない場合でも、SBTテープ圧縮を使用できます。', true);
+	pushChoice('この構成でSBTデバイスに書き込まれるバックアップセットには、最大2つのバックアップピースを含めることができます。', false);
+	pushChoice('この構成でSBTデバイスに書き込まれるバックアップには、最大2つのバックアップセットを含めることができます。', false);
+	pushChoice('SBTテープ圧縮とRMANバックアップ圧縮を並行して使用する必要があります。', false);
+	pushChoice('SBTデバイスは、PARALLELISM 2を使用して両方のテープドライブを同時に使用できるように構成する必要があります。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 52
 	//=============================================================================
 }());
 
