@@ -947,6 +947,139 @@ function sortQuestion(){
 	//=============================================================================
 	// 52
 	//=============================================================================
+	q_list.push(new Question('あなたはスタンドアロンサーバー用のOracleグリッドインフラストラクチャとOracleデータベースをサーバーに初めてインストールする予定です。'
+	+ '\nこのコマンドとその結果を調べます。'
+	+ '\n'
+	+ '\n# id oracle'
+	+ '\nuid=54321 (oracle) gid=54321(oinstall) group=54321(oinstall), 54322(dba)'
+	+ '\n'
+	+ '\n正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('oracleはOracle Inventoryの所有者になります。', true);
+	pushChoice('oracleは、すべてのOracle Databaseインストールの所有者でなければなりません。', false);
+	pushChoice('oracleはOracle Databaseインストールを所有できますが、Oracle Grid Infrastructureインストールは所有できません。', false);
+	pushChoice('Oracle Databaseソフトウェアをインストールすると、oracleにSYSASM権限が付与されます。', false);
+	pushChoice('ユーザーアカウントoracleおよびグループoinstallは、すべてのOracleソフトウェアのインストールに使用できます。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 53
+	//=============================================================================
+	q_list.push(new Question('この構成を調べます。'
+	+ '\n'
+	+ '\n1. CDB1は、ARCHIVELOGモードで実行されるコンテナーデータベースです。'
+	+ '\n2. CDB1の制御ファイルは"/u01/app/oracle/oradata/CDB1/controlfile/controlfile01.ctl"および"/u02/app/oracle/fast_recover_area/cdb1/CDB1/controlfile02.ctl"に多重化されています。'
+	+ '\n3. CDB1の唯一のバックアップは、CONTROLFILE AUTOBACKUPがOFFのときに行われました。'
+	+ '\n4. スナップショット制御ファイル名は"/u01/app/oracle/product/12.2.0.1/db_1/dbs/snapcf_cdb1.f"です。'
+	+ '\n  '
+	+ '\nCDB1が開いている間、"/u02/app/oracle/fast_recover_area/cdb1/CDB1/controlfile02.ctl"が誤って削除されました。'
+	+ '\nこの重大な障害から回復するために、次のコマンドを実行しました。'
+	+ '\n'
+	+ '\n$ rman target sys/oracle_4U@localhost:1521/cdb1'
+	+ '\n'
+	+ '\nRMAN> SHUTDOWN ABORT'
+	+ '\n...'
+	+ '\nOracle instance shut down'
+	+ '\n'
+	+ '\nRMAN> STARTUP NOMOUNT'
+	+ '\n'
+	+ '\nRMAN> RMAN RESTORE CONTROLFILE FROM'
+	+ '\n  "/u01/app/oracle/oradata/CDB1/controlfile/controlfile01.ctl";'
+	+ '\n'
+	+ '\n結果はどうなりますか？',
+	''));
+	pushChoice('"$ORACLE_HOME/dbs/cdb1/CDB1/controlfile02.ctl"が作成されます', false);
+	pushChoice('"/u01/app/oralce/oradata/CDB1/controlfile/controlfile02.ctl"が作成されます。', false);
+	pushChoice('"/u02/app/oracle/fast_recover_area/cdb1/CDB1/controlfile02.ctl"が再作成されます。', true);
+	pushChoice('"/u01/app/oracle/product/12.2.0.1/db_1/dbs/snapcf_cdb1control02.ctl"が作成されます。', false);
+	pushChoice('制御ファイルの自動バックアップがないため、失敗します。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 54
+	//=============================================================================
+	q_list.push(new Question('これらのアクションを調べます。'
+	+ '\n'
+	+ '\n1. リカバリカタログ用の新しいデータベースを作成します。'
+	+ '\n2. リカバリカタログ用に、カタログデータベースに十分なスペースのあるテーブルスペースを作成します。'
+	+ '\n3. カタログデータベースのARCHIVELOGモードを構成します。'
+	+ '\n4. ユーザーを作成して、カタログが含まれるテーブルスペースにクォータを持つリカバリカタログスキーマを所有します。'
+	+ '\n5. RECOVERY_CATALOG_OWNERロールをリカバリカタログスキーマの所有者に付与します。'
+	+ '\n6. SYSBACKUP権限をリカバリカタログスキーマの所有者に付与します。'
+	+ '\n'
+	+ '\nCREATE CATALOGコマンドを実行する前に実行する必要がある最小アクションはどれですか？',
+	''));
+	pushChoice('2, 4, 5, 6', false);
+	pushChoice('1, 2, 3, 4, 5, 6', false);
+	pushChoice('1, 2, 4, 5', true);
+	pushChoice('2, 4, 5', false);
+	pushChoice('1, 3, 4, 5', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 55
+	//=============================================================================
+	q_list.push(new Question('Oracle 19c以降のリリースでスナップショットを使用してプラガブルデータベース（PDB）を作成する場合、正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('PDBスナップショットは、常にソースPDBの完全なコピーです。', false);
+	pushChoice('PDBスナップショットは、常にソースPDBのスパースコピー(部分的に空のファイルを実際のファイルシステム上で少ない消費容量で効率的に保存する仕組み)です。', false);
+	pushChoice('スナップショットコピーPDBは、特定のファイルシステムにのみ保存できるストレージスナップショットに依存しています。', true);
+	pushChoice('PDBスナップショットは、任意のファイルシステムに格納できるストレージスナップショットに依存しています。', false);
+	pushChoice('PDBスナップショットは、特定のファイルシステムにのみ保存できるストレージスナップショットに依存しています。', true);
+	pushChoice('スナップショットコピーPDBは、任意のファイルシステムに格納できるストレージスナップショットに依存しています。', false);
+	pushChoice('スナップショットコピーPDBは、スタンドアロンクローンPDBから作成できます。', false);
+	sortChoice();
+
+	//=============================================================================
+	// 56
+	//=============================================================================
+	q_list.push(new Question('Oracle Database Configuration Assistant（DBCA）テンプレートについて正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('トランザクション処理の汎用テンプレートは、同時実行性と回復性が重要な基準である場合に最適です。', true);
+	pushChoice('Oracle DBCAテンプレートは、論理構造のみを保存でき、データベースファイルは保存できません。', false);
+	pushChoice('新しいテンプレートは、既存のユーザー作成テンプレートを変更することによってのみ作成できます。', false);
+	pushChoice('データウェアハウステンプレートは、トランザクションの応答時間が重要な基準である場合に最適です。', false);
+	pushChoice('Oracle DBCAテンプレートを使用して、新しいデータベースを作成し、既存のデータベースを複製できます。', true);
+	sortChoice();
+
+	//=============================================================================
+	// 57
+	//=============================================================================
+	q_list.push(new Question('SALES_ROOTアプリケーションコンテナには、2つのアプリケーションPDBがあります。'
+	+ '\nSALES_APPアプリケーションには、2つのPDBに共通のテーブルFIN.REVENUEがあります。'
+	+ '\nこのクエリとその出力を調べます。'
+	+ '\n'
+	+ '\nSELECT containers_default, container_map, container_map_object, table_name'
+	+ '\n  FROM dba_tables WHERE owner="FIN";'
+	+ '\n'
+	+ '\nCONTAINERS_DEFAULT  CONTAINER_MAP  CONTAINER_MAP_OBJECT  TABLE_NAME '
+	+ '\n------------------- -------------- --------------------- -----------'
+	+ '\nNO                  YES            NO                    REVENUE'
+	+ '\nNO                  NO             YES                   MAPTABLE'
+	+ '\n'
+	+ '\n正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('CONTAINERS句は、REVENUEテーブルのクエリでは使用できません。', false);
+	pushChoice('REVENUEテーブルは、リストパーティションテーブルである必要があります。', false);
+	pushChoice('MAPTABLEテーブルは、REVENUEテーブルに一般的に使用される列の論理パーティションキーを定義します。', true);
+	pushChoice('MAPTABLEテーブルは、メタデータにリンクされたテーブルです。', true);
+	pushChoice('REVENUEテーブルのコンテナマップは存在しますが、有効になっていません。', false);
+	pushChoice('REVENUEテーブルパーティションは、PDB間で自動的にプルーニングされません。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 58
+	//=============================================================================
+	q_list.push(new Question('コンテナーデータベースCDB1には、アプリケーションコンテナーHR_ROOTとアプリケーションPDB HR_PDB1があります。'
+	+ '\nあなたHR_ROOTを含まないコンテナーデータベースCDB2にHR_PDB1を複製するために必要な権限を持っている。'
+	+ '\n常に正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('CDB1とCDB2は共有UNDOモードでなければなりません。', false);
+	pushChoice('共通ユーザーは、CREATE PLUGGABLE DATABASE権限を持つCDB2に存在している必要があります。', true);
+	pushChoice('CDB1のHR_PDB1内のすべてのトランザクションは、クローン作成プロセスが開始する前にコミットする必要があります。', false);
+	pushChoice('HR_ROOTを複製すると、HR_PDB1が自動的に複製されます。', false);
+	pushChoice('CDB2で作成されたHR_PDB1クローンは、クローニングが終了するとマウント状態になります。', true);
+	sortChoice();
 }());
 
 (function(){
