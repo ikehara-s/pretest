@@ -475,6 +475,313 @@ function sortQuestion(){
 	pushChoice('フラッシュバックログは、DB_FLASHBACK_RETENTION_TARGETで定義された保持期間よりも古いものとして監視され、管理者が作成したイベントトリガーによって削除できます。', false);
 	pushChoice('フラッシュバックログは、DB_FLASHBACK_RETENTION_TARGETの値が変更されるたびに自動的にパージされます。', false);
 	sortChoice();
+	
+	//=============================================================================
+	// 27
+	//=============================================================================
+	q_list.push(new Question('これらのクエリとその出力を調べます。'
+	+ '\n'
+	+ '\nSQL> select log_mode from v$database;'
+	+ '\n'
+	+ '\nLOG_MODE'
+	+ '\n-----------'
+	+ '\nARCHIVELOG'
+	+ '\n'
+	+ '\nSQL> select property_name, property_value'
+	+ '\n  2  from database_properties where property_name like '%UNDO%';'
+	+ '\n'
+	+ '\nPROPERTY_NAME       PROPERTY_NAME'
+	+ '\n------------------- --------------'
+	+ '\nLOCAL_UNDO_ENABLED  FALSE'
+	+ '\n'
+	+ '\nSQL> select p.name, f.file#, t.name'
+	+ '\n  2  from v$containers p, v$datafile f, v$tablespace t'
+	+ '\n  3  where p.con_if=f.con_id'
+	+ '\n  4  and p.con_id=t.con_id'
+	+ '\n  5  and t.ts#=f.ts#'
+	+ '\n  6  order by 1, 2;'
+	+ '\n'
+	+ '\nNAME      FILE#   NAME'
+	+ '\n--------- ------- -------------'
+	+ '\nCDB$ROOT       1  SYSTEM'
+	+ '\n...'
+	+ '\nPDB1          24  SYSTEM'
+	+ '\n...'
+	+ '\nPDB2          16  SYSTEM'
+	+ '\n'
+	+ '\nシステムがクラッシュした後、インスタンスが再起動し、PDBを開こうとした結果、次のようになりました。'
+	+ '\n'
+	+ '\nSQL> startup quiet'
+	+ '\nORACLE instance started.'
+	+ '\nDatabase mounted.'
+	+ '\nDatabase opened.'
+	+ '\nSQL> alter pluggable database all open;'
+	+ '\nalter pluggable database all open;'
+	+ '\n*'
+	+ '\nERROR at line 1:'
+	+ '\nORA-01157: cannot identify/lock data file 24 - see DBWR trace file'
+	+ '\nORA-01110: data file 24:'
+	+ '\n'/u01/oradata/V122CDB1/516000726D464D04E054000C29704164/datafile/o1_mf_system_dmj30kld_.dbf''
+	+ '\n'
+	+ '\n正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('データファイル24は、PDB2が開いている間に回復できます。', true);
+	pushChoice('データファイル24は、CDBが開いている間に回復する必要があります。', true);
+	pushChoice('データファイル24は、CDB$ROOTおよびPDB$SEEDが開いている間に回復できます。', false);
+	pushChoice('CDBが開いている間は、データファイル24を復元できません。', false);
+	pushChoice('データファイル24は、PDB2が閉じている間に回復する必要があります。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 28
+	//=============================================================================
+	q_list.push(new Question('RMANの二重化バックアップセットについて正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('二重化されたバックアップセットは、同じ数のファイルに対して、二重化されていないバックアップセットと同じ数のSBTチャネルを使用します。', false);
+	pushChoice('ディスクに書き込まれた非二重化バックアップセットは、すでにディスク上にあるバックアップセットをバックアップすることにより、ディスクに二重化できます。', true);
+	pushChoice('SBTに書き込まれた二重化されていないバックアップセットは、すでにテープ上にあるバックアップセットをバックアップすることにより、テープに二重化できます。', false);
+	pushChoice('ディスクに書き込まれた非二重化バックアップセットは、すでにディスク上にあるバックアップセットをバックアップすることにより、テープに二重化できます。', true);
+	pushChoice('SBTに書き込まれた非二重化バックアップセットは、すでにテープ上にあるバックアップセットをバックアップすることにより、ディスクに二重化できます。', false);
+	pushChoice('二重化されたバックアップセットは、同じ数のファイルに対して、常に二重化されていないバックアップセットの2倍のSBTチャネルを使用します。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 29
+	//=============================================================================
+	q_list.push(new Question('RMANの永続的な構成設定、管理、およびそれらの影響について正しい説明を3つ選択しなさい。',
+	''));
+	pushChoice('ターゲットデータベースの永続的なRMAN構成設定は常にターゲットの制御ファイルに格納されます。', true);
+	pushChoice('バックアップ場所に十分なスペースがない場合、リカバリ期間の保存ポリシーより古いバックアップは常に自動的に削除されます。', false);
+	pushChoice('冗長性保持ポリシーに基づいたobosleteである高速リカバリ領域（FRA）に書き込まれたバックアップは、自動的に削除してスペースを解放できます。', true);
+	pushChoice('RMAN SHOW ALLコマンドは、デフォルト値以外の設定のみを表示します。', false);
+	pushChoice('ターゲットデータベースの永続的なRMAN構成設定は、常にRMANカタログと自動的に同期されます。', false);
+	pushChoice('V$RMAN_CONFIGURATIONビューには、値が変更された設定のみが表示されます。', true);
+	pushChoice('DBAは、冗長性保持ポリシーまたはリカバリウィンドウ保持ポリシーを指定する必要があります。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 30
+	//=============================================================================
+	q_list.push(new Question('オプティマイザ統計アドバイザーについて正しい説明を3つ選択しなさい。',
+	''));
+	pushChoice('手動でのみ実行できます。', false);
+	pushChoice('これは、DBMS_ADVISORパッケージの一部です。', false);
+	pushChoice('統計収集プロセスを改善するために変更を推奨できます。', true);
+	pushChoice('常にデータベース内のすべてのスキーマを分析します。', false);
+	pushChoice('デフォルトでは毎晩自動的に実行されます。', true);
+	pushChoice('これは、DBMS_STATSパッケージの一部です。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 31
+	//=============================================================================
+	q_list.push(new Question('このコマンドについて調べます。'
+	+ '\n'
+	+ '\nRMAN> BACKUP RECOVERY FILES;'
+	+ '\n'
+	+ '\n正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('現在のFRAに含まれておらず、まだバックアップされていないすべてのOracleリカバリファイルがバックアップされます。', true);
+	pushChoice('まだバックアップされていない、現在のFRA内のすべてのOracle以外のファイルがバックアップされます。', false);
+	pushChoice('まだバックアップされていない、現在のFRA内のすべてのOracleリカバリファイルがバックアップされます。', true);
+	pushChoice('現在の高速リカバリ領域（FRA）内のすべてのOracleリカバリファイルがバックアップされます。', false);
+	pushChoice('これらのバックアップは、ディスクまたはSBTに書き込むことができます。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 32
+	//=============================================================================
+	q_list.push(new Question('Which two are true about the Oracle dataabse methodology? (Choose two.)'
+	+ '\n'
+	+ '\nOracle dataabse方法論について正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('Oracle Databaseの時間モデルを使用して、チューニングが最も必要なデータベースとインスタンスの領域を見つける必要があります。', false);
+	pushChoice('ユーザーがパフォーマンスに満足したら、チューニングアクティビティを停止する必要があります。', false);
+	pushChoice('パフォーマンスに関する合意されたサービスレベルに達したら、チューニングアクティビティを停止する必要があります。', true);
+	pushChoice('ファイルシステムを調整する前に、データベースインスタンスのメモリを常に調整する必要があります。', false);
+	pushChoice('ファイルシステムを調整する前に、SQLステートメントを常に調整する必要があります。', false);
+	pushChoice('アラートログは、チューニングが最も必要なデータベースとインスタンスの領域を見つけるために使用する必要があります。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 33
+	//=============================================================================
+	q_list.push(new Question('Oracle Fast Recovery Area（FRA）にバックアップしているときに、バックアップに時間がかかりすぎてパフォーマンスのボトルネックが疑われます。'
+	+ '\nこれらの問題の診断と調整について正しい説明を3つ選択しなさい。',
+	''));
+	pushChoice('RMAN BACKUP VALIDATEコマンドに実際のバックアップとほぼ同じ時間がかかる場合は、読み取りと書き込みの両方のI/Oがボトルネックになっている可能性があります。', false);
+	pushChoice('DBWR_IO_SLAVESをゼロ以外の値に設定すると、同期I/Oを使用するときのバックアップパフォーマンスが向上します。', true);
+	pushChoice('RMAN BACKUP VALIDATEコマンドの実行時間が実際のバックアップよりも著しく少ない場合は、書き込みI/Oがボトルネックになっている可能性があります。', true);
+	pushChoice('RMAN BACKUP VALIDATEコマンドに実際のバックアップとほぼ同じ時間がかかる場合は、読み取りI/Oがボトルネックになっている可能性があります。', false);
+	pushChoice('V$BACKUP_SYNC_IO.DISCRETE_BYTES_PER_SECONDの値が高いデータファイルは、同期I/Oを使用するときにパフォーマンスのボトルネックになる可能性があります。', false);
+	pushChoice('DBWR_IO_SLAVESをゼロ以外の値に設定すると、非同期I/Oを使用するときのバックアップパフォーマンスが向上します。', false);
+	pushChoice('V$BACKUP_ASYNC_IO.SHORT_WAITSの値が高いデータファイルは、非同期I/Oを使用するときにパフォーマンスのボトルネックになる可能性があります。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 34
+	//=============================================================================
+	q_list.push(new Question('あなたはこの構成を管理しています。'
+	+ '\n'
+	+ '\n1. CDB1はコンテナーデータベースです。'
+	+ '\n2. PDB1とPDB2は、CDB1内のプラガブルデータベースです。'
+	+ '\n3. USER1.EMPはPDB1のテーブルで、USER2.DEPTはPDB2のテーブルです。'
+	+ '\n'
+	+ '\nCDB1ユーザーSYSは、PDB2に正常に接続した後で、次のコマンドを実行しました。'
+	+ '\n'
+	+ '\nSQL> ALTER SESSION SET CONTAINER=pdb1;'
+	+ '\nSession altered.'
+	+ '\n'
+	+ '\nSQL> INSERT INTO user1.emp VALUES(100, 'Alan', 1);'
+	+ '\n1 row created.'
+	+ '\n'
+	+ '\nSQL> INSERT INTO user1.emp VALUES(101, 'Ben', 1);'
+	+ '\n1 row created.'
+	+ '\n'
+	+ '\nSQL> ALTER SESSION SET CONTAINER=pdb2;'
+	+ '\nSession altered.'
+	+ '\n'
+	+ '\nSQL> INSERT INTO user2.dept VALUES(1, 'IT');'
+	+ '\n'
+	+ '\n正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('セッションがPDB2に接続したとき、USER1.EMPへの挿入はコミットされないままです。', true);
+	pushChoice('USER1.EMPへの挿入は、セッションがUSER2.DEPTに行を挿入したときにコミットされました。', false);
+	pushChoice('親コンテナー内のアクティブなトランザクションのため、USER2.DEPTへの挿入は失敗します。', true);
+	pushChoice('USER2.DEPTの挿入は、子セッションによる再帰的な自律型トランザクションであり、コミットされます。', false);
+	pushChoice('USER1.EMPの挿入は、セッションがPDB2に接続したときにロールバックされました。', false);
+	pushChoice('USER2.DEPTへの挿入はコミットされていません。', false);
+	pushChoice('USER1.EMPへの挿入は、セッションがPDB2に接続したときにコミットされました。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 35
+	//=============================================================================
+	q_list.push(new Question('この構成を調べます。'
+	+ '\n'
+	+ '\n1. CDB1は、プラガブルデータベースPDB$SEED、PDB1、およびPDB2を含むOracle Database 12cリリース2データベースです。'
+	+ '\n2. PDB$SEEDは読み取りモードでオープンしています。'
+	+ '\n3. PDB1は読み取り／書き込みモードでオープンしています。'
+	+ '\n4. PDB2はマウント状態です。'
+	+ '\n5. ORACLE_HOME環境変数は"/u01/app/oracle/product/18.1.0/dbhome_1"です。'
+	+ '\n'
+	+ '\nあなたはデータベースを現在のリリースにアップグレードする前に、次のコマンドを実行しました。'
+	+ '\n'
+	+ '\n$ . oraenv'
+	+ '\nORACLE_SID = [cdb1] ? cdb1'
+	+ '\n'
+	+ '\nORACLE_BASEは/u01/app/oracleで変更されませんでした。'
+	+ '\n'
+	+ '\n$ $ORACLE_HOME/jdk/bin/java -jar preupgrade.jar TERMINAL TEXT'
+	+ '\n'
+	+ '\nどのデータベースに対してフィックスアップスクリプトが作成されますか？',
+	''));
+	pushChoice('CDB1、PDB$SEED、PDB1、PDB2', false);
+	pushChoice('PDB$SEED、PDB1、PDB2', false);
+	pushChoice('CDB1、PDB$SEED', false);
+	pushChoice('CDB1、PDB1、PDB2', false);
+	pushChoice('CDB1、PDB$SEED、PDB1', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 36
+	//=============================================================================
+	q_list.push(new Question('Oracle Flashback機能について正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('フラッシュバックコマンドは、REDOレコードをオンラインREDOログファイルおよびアーカイブREDOログファイルから取得できます。', false);
+	pushChoice('フラッシュバックバージョン問い合わせは、REDOレコードをオンラインREDOログファイルおよびアーカイブREDOログファイルから取得できます。', false);
+	pushChoice('フラッシュバック表は列の削除をフラッシュバックできます。', false);
+	pushChoice('フラッシュバックドロップは、テーブルを修復するときにインデックスも修復できます。', true);
+	pushChoice('フラッシュバックデータべースを使用してデータベースがフラッシュバックログから復元された後、REDOログを使用してロールフォワードされる場合があります。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 37
+	//=============================================================================
+	q_list.push(new Question('アプリケーションシードのプラガブルデータベース（PDB）について正しい説明を3つ選択しなさい。',
+	''));
+	pushChoice('アプリケーションがアップグレードされると、アプリケーションルートPDBと自動的に同期されます。', false);
+	pushChoice('アプリケーションコンテナが既に作成されている場合は、アプリケーションコンテナに追加できません。', false);
+	pushChoice('アプリケーションシードPDBを複製して作成された新しいアプリケーションPDBには、複製の完了後に、古いバージョンのアプリケーションをインストールできます。', true);
+	pushChoice('アプリケーションがインストールされると、アプリケーションルートPDBと自動的に同期されます。', false);
+	pushChoice('アプリケーションコンテナからドロップすることはできません。', false);
+	pushChoice('アプリケーションシードPDBのクローン作成によって作成された新しいアプリケーションPDBには、クローン作成の完了後に、最新バージョンのアプリケーションをインストールできます。', true);
+	pushChoice('アプリケーションコンテナでは必要ありません。', true);
+	sortChoice();
+	
+	//=============================================================================
+	// 38
+	//=============================================================================
+	q_list.push(new Question('この構成を調べます。'
+	+ '\n'
+	+ '\n1. CDB1はコンテナーデータベースです。'
+	+ '\n2. PDB1とPDB2は、CDB1内のプラガブルデータベースです。'
+	+ '\n3. PDB1とPDB2は読み取り／書き込みモードでオープンしています。'
+	+ '\n'
+	+ '\n次のコマンドは正常に実行されました。'
+	+ '\n'
+	+ '\n$ export ORACLE_SID=CDB1'
+	+ '\n$ sqlplus / as sysdba'
+	+ '\n'
+	+ '\nSQL> ALTER SESSION SET CONTAINER = PDB1;'
+	+ '\nSession altered.'
+	+ '\n'
+	+ '\nSQL> SHUTDOWN IMMEDIATE'
+	+ '\n'
+	+ '\n正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('PDB1のコミットされていないトランザクションがロールバックされました。', true);
+	pushChoice('PDB1は閉じられます。', true);
+	pushChoice('CDB1とPDB1のコミットされていないトランザクションがロールバックされました。', false);
+	pushChoice('CDB1はシャットダウンされます。', false);
+	pushChoice('CDB1はマウント状態となります。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 39
+	//=============================================================================
+	q_list.push(new Question('自動ワークロードリポジトリ（AWR）、自動データベース診断モニター（ADDM）、および管理性モニター（MMON）バックグラウンドプロセスについて正しい説明を3つ選択しなさい。',
+	''));
+	pushChoice('ADDMは、バッファキャッシュの圧縮を推奨できます。', true);
+	pushChoice('ADDMは、バッファキャッシュの拡張を推奨できます。', true);
+	pushChoice('デフォルトでは、MMONは30分ごとにAWRスナップショットを作成します。', false);
+	pushChoice('ADDMが分析を実行するのは、DBAが要求した場合のみです。', false);
+	pushChoice('デフォルトでは、AWRスナップショットは8日後に自動的に消去されます。', true);
+	pushChoice('ADDMで不要になったAWRスナップショットを削除する必要があります。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 40
+	//=============================================================================
+	q_list.push(new Question('コンテナーデータベースCDB2にプラガブルデータベースPDB2を作成するためのコマンドを調べます。'
+	+ '\n'
+	+ '\nCREATE PLUGGABLE DATABASE pdb2'
+	+ '\n    ADMIN USER pdb2_adm'
+	+ '\n    IDENTIFIED BY 123pdb'
+	+ '\n    ROLES=(CONNECT);'
+	+ '\n'
+	+ '\n正常に実行されるオプションの説明として正しいものを3つ選択しなさい。',
+	''));
+	pushChoice('FILE_NAME_CONVERT句をステートメントに追加し、PDB_FILE_NAME_CONVERTパラメータを設定します。', false);
+	pushChoice('CREATE_FILE_DEST句のみをステートメントに追加します。', true);
+	pushChoice('PDB_FILE_NAME_CONVERTパラメータのみを設定します。', true);
+	pushChoice('PDB_FILE_NAME_CONVERTパラメータを設定し、OMFを有効にします。', false);
+	pushChoice('OMFのみを有効にします。', true);
+	pushChoice('FILE_NAME_CONVERT句をステートメントに追加し、Oracle Managed Files（OMF）を有効にします。', false);
+	sortChoice();
+	
+	//=============================================================================
+	// 41
+	//=============================================================================
+	q_list.push(new Question('Recovery Manager（RMAN）診断メッセージ出力について正しい説明を2つ選択しなさい。',
+	''));
+	pushChoice('SBTデバイスのメディア管理メッセージは、常にsbtio.logに書き込まれます。', false);
+	pushChoice('RMANエラースタックは、エラーが生成される順序なので、下から上に読み取る必要があります。', true);
+	pushChoice('RMANエラースタックは、エラーが生成される順序なので、上から下に読み取る必要があります。', false);
+	pushChoice('RMAN LOGコマンドライン句を使用すると、RMANコマンドのコンパイル中に発行された出力がログファイルと標準出力に書き込まれます。', true);
+	pushChoice('RMAN LOGコマンドライン句を使用すると、RMANコマンドのコンパイル中に発行された出力がログファイルにのみ書き込まれます。', false);
+	pushChoice('SBTデバイスのメディア管理メッセージは、Oracleトレースファイルに書き込まれます。', false);
+	sortChoice();
 }());
 
 (function(){
