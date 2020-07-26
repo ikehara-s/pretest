@@ -591,9 +591,7 @@ function sortQuestion(){
 	//=============================================================================
 	// 32
 	//=============================================================================
-	q_list.push(new Question('Which two are true about the Oracle dataabse methodology? (Choose two.)'
-	+ '\n'
-	+ '\nOracle dataabse方法論について正しい説明を2つ選択しなさい。',
+	q_list.push(new Question('Oracle dataabse方法論について正しい説明を2つ選択しなさい。',
 	''));
 	pushChoice('Oracle Databaseの時間モデルを使用して、チューニングが最も必要なデータベースとインスタンスの領域を見つける必要があります。', false);
 	pushChoice('ユーザーがパフォーマンスに満足したら、チューニングアクティビティを停止する必要があります。', false);
