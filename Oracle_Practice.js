@@ -97,7 +97,7 @@ function sortQuestion(){
 	// 1
 	//=============================================================================
 	q_list.push(new Question('しきい値、メトリック、サーバー生成アラートについて正しい説明を3つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('すべてのメトリックはインスタンスに関連付けられている。', false);
 	pushChoice('クリアされたステートフルアラートは、DBA_ALERT_HISTORYコマンドを実行することで表示されます。', true);
 	pushChoice('空き領域のアラートは、根本的な問題が解決されると自動的にクリアされます。', true);
@@ -112,7 +112,7 @@ function sortQuestion(){
 	q_list.push(new Question('SBTチャネルへのバックアップ中に、圧縮されたRMAN増分レベル0バックアップの読み取りフェーズがボトルネックであると判断しました。'
 	+ '\nデータベースでFORCE LOGGINGが有効になっています。'
 	+ '\n読み取りパフォーマンスを改善できるものとして正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('テープI/Oバッファーのサイズを増やします。', false);
 	pushChoice('データベースのFORCE LOGGINGを無効にします。', false);
 	pushChoice('データベースバッファキャッシュのサイズを増やします。', false);
@@ -124,7 +124,7 @@ function sortQuestion(){
 	// 3
 	//=============================================================================
 	q_list.push(new Question('CREATE PLUGGABLE DATABASEコマンドでUSER_TABLESPACE句を使用する要件として正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('同じCDB内の別のPDBから複製されたPDB内のデフォルト表領域を指定します。', false);
 	pushChoice('PDBに接続するときに、SYSTEM、SYSAUX、TEMP以外のすべての表領域を除外します。', true);
 	pushChoice('PDBの再配置時にのみ特定のユーザー表領域を含めます。', false);
@@ -137,7 +137,7 @@ function sortQuestion(){
 	// 4
 	//=============================================================================
 	q_list.push(new Question('さまざまなFLASHBACK操作の要件について正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('FLASHBACKトランザクションコマンドでは、2つの時点の間に存在していた行のすべてのバージョンを取得するために、UNDO情報が必要です。', true);
 	pushChoice('FLASHBACKドロップでは、RECYCLEBINパラメータをONに設定する必要があります。', true);
 	pushChoice('FLASHBACKバージョンコマンドでは、RECYCLEBINパラメータをONに設定する必要があります。', false);
@@ -149,8 +149,8 @@ function sortQuestion(){
 	//=============================================================================
 	// 5
 	//=============================================================================
-	q_list.push(new Question('Oracle Grid Infrastructure用のOracle Preinstallaiont RPM oracle-database-server-xxxx-preinstallによって実行される3つのアクションはどれですか。',
-	''));
+	q_list.push(new Question('Oracle Grid Infrastructure用のOracle Preinstallation RPM oracle-database-server-xxxx-preinstallによって実行される3つのアクションはどれですか。',
+	'A'));
 	pushChoice('Oracle Grid Infrastructureの最小構成要件が満たされていることを確認するためのチェックの実行。', false);
 	pushChoice('Oracle OSユーザーの作成。', true);
 	pushChoice('OSDBA（dba）グループの作成。', true);
@@ -162,8 +162,8 @@ function sortQuestion(){
 	//=============================================================================
 	// 6
 	//=============================================================================
-	q_list.push(new Question('共有オブジェクトについて正しい説明を2つ選択しなさい。',
-	''));
+	q_list.push(new Question('共通オブジェクトについて正しい説明を2つ選択しなさい。',
+	'C'));
 	pushChoice('CDB$ROOTでのみ作成できます。', false);
 	pushChoice('これらは、アプリケーションコンテナ内でのみメタデータにリンクできます。', false);
 	pushChoice('これらは、アプリケーションコンテナ内のユーザー定義スキーマにのみ存在できます。', false);
@@ -176,7 +176,7 @@ function sortQuestion(){
 	// 7
 	//=============================================================================
 	q_list.push(new Question('自動データベース診断モニター（ADDM）について正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('12時間のアクティビティに対応する期間を分析します。', false);
 	pushChoice('各AWRスナップショットの後に自動的に実行されます。', true);
 	pushChoice('DBAは手動で実行できます。', true);
@@ -188,7 +188,7 @@ function sortQuestion(){
 	// 8
 	//=============================================================================
 	q_list.push(new Question('サーバー生成アラートについて正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('問題を解決した後、DBAがステートフルアラートを作成する必要があります。', false);
 	pushChoice('ステートレスアラートは、アラート履歴から手動で削除できます。', true);
 	pushChoice('ステートレスアラートは手動でクリアできます。', true);
@@ -200,7 +200,7 @@ function sortQuestion(){
 	// 9
 	//=============================================================================
 	q_list.push(new Question('環境変数を使用して配置されているものとして正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('Oracleソフトウェアおよび構成ファイルを格納するためのOptimal Flexible Architecture（OFA）準拠のパス。', true);
 	pushChoice('Oracle Net Services構成ファイルの場所。', true);
 	pushChoice('起動時にOracle自動ストレージ管理（ASM）インスタンスによってマウントされるディスク・グループ名のリスト。', false);
@@ -213,9 +213,9 @@ function sortQuestion(){
 	// 10
 	//=============================================================================
 	q_list.push(new Question('OPatchAutoについて正しい説明を3つ選択しなさい。',
-	'答えは3つ'));
+	'C'));
 	pushChoice('パッチ適用プロセス中に、Oracle Grid InfrastructureとOracle Databaseホームの両方のすべてのプロセスのシャットダウンおよび再起動が実行されます。', true);
-	pushChoice('rootユーザー権限を持つユーザーが呼び出す必要があります。', true);
+	pushChoice('rootユーザー権限を持つユーザーが呼び出す必要があります。', false);
 	pushChoice('パッチはopatchautoを介して適用されます。', true);
 	pushChoice('ユーザーは常にパッチプランをopatchautoに入力する必要があります。', false);
 	pushChoice('Oracle Grid InfrastructureおよびOracle Databaseインスタンスを起動する前に停止する必要があります。', false);
