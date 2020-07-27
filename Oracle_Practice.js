@@ -813,7 +813,7 @@ function sortQuestion(){
 	// 44
 	//=============================================================================
 	q_list.push(new Question('データベースのPoint-in-Timeリカバリについて正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('データベースのPoint-in-Timeリカバリを実行するには、データベースにFLASHBACK DATABASE ONが必要です。', false);
 	pushChoice('データベースのPoint-in-Timeリカバリを実行するとき、データベースはMOUNT状態である必要があります。', true);
 	pushChoice('データベースのPoint-in-Timeリカバリは、マネージドリカバリプロセス（MRP）によって実行されます。', false);
@@ -826,7 +826,7 @@ function sortQuestion(){
 	// 45
 	//=============================================================================
 	q_list.push(new Question('SQLチューニングアドバイザについて正しい説明を3つ選択しなさい。',
-	''));
+	'C'));
 	pushChoice('分析中の各クエリをチェックして、古くなった統計がないか調べます。', true);
 	pushChoice('分析中の各クエリをチェックして、欠落している統計がないか調べます。', true);
 	pushChoice('SQL文の構文変更のみを推奨します。', false);
@@ -839,7 +839,7 @@ function sortQuestion(){
 	// 46
 	//=============================================================================
 	q_list.push(new Question('RMANでのプラガブルデータベース（PDBs）の複製について正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('同じRMAN DUPLICATEコマンドを使用して、2つ以上のPDBを複製できます。', true);
 	pushChoice('PDBを複製する場合、PDBに属するすべてのテーブルスペースを複製する必要があります。', false);
 	pushChoice('補助インスタンスは、ENABLE_PLUGGABLE_DATABASE = TRUEで自動的に作成されます。', false);
@@ -851,12 +851,12 @@ function sortQuestion(){
 	// 47
 	//=============================================================================
 	q_list.push(new Question('Orcale 18c以降に利用可能となったRapid Home Provisioning（RHP）について正しい正しい説明を2つ選択しなさい。',
-	''));
-	pushChoice('Oracle Databaseサービスです。', true);
+	'C'));
+	pushChoice('Oracle Databaseサービスです。', false);
 	pushChoice('Oracle Databaseホームのアップグレードには使用できません。', false);
-	pushChoice('アプリケーションのプロビジョニングに使用できます。', false);
-	pushChoice('Oracle Restartを含むGrid Infrastructureホームにパッチを適用するために使用できます。', true);
-	pushChoice('ミドルウェアのプロビジョニングに使用できます。', false);
+	pushChoice('アプリケーションのプロビジョニングに使用できます。', true);
+	pushChoice('Oracle Restartを含むGrid Infrastructureホームにパッチを適用するために使用できます。', false);
+	pushChoice('ミドルウェアのプロビジョニングに使用できます。', true);
 	sortChoice();
 	
 	//=============================================================================
