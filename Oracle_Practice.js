@@ -227,7 +227,7 @@ function sortQuestion(){
 	// 11
 	//=============================================================================
 	q_list.push(new Question('Oracleデータベースで使用される文字セットについて正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('シングルバイト文字セットは、マルチバイト文字セットよりも優れたパフォーマンスを提供します。', true);
 	pushChoice('Unicodeでは、任意の言語の情報を単一の文字セットを使用して格納できます。', true);
 	pushChoice('Unicodeは、Database Configuration Assistant（DBCA）を使用して作成されたOracleデータベースでサポートされる唯一の文字セットです。', false);
@@ -240,7 +240,7 @@ function sortQuestion(){
 	// 12
 	//=============================================================================
 	q_list.push(new Question('セッションとサービスのモニタリング待機について正しい説明を3つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('V$SESSION_EVENTは、セッションで少なくとも1回待機が発生した場合、過去および既存のすべてのセッションの待機をすべて表示する。', false);
 	pushChoice('V$SERVICE_EVENTは、サービスに対して少なくとも1回待機が発生した場合、すべてのサービスのすべての待機を表示する。', true);
 	pushChoice('V$SESSION_WAIT_CLASSは、待機中のセッションについてのみ、待機クラスごとに分類された待機を表示する。', false);
@@ -267,7 +267,7 @@ function sortQuestion(){
 	+ '\n8. 宛先システムでUNIVERSITYテーブルスペースを読み取り/書き込み可能にします。'
 	+ '\n'
 	+ '\nUNIVERSITYテーブルスペースをトランスポートするために必要なアクションの最小数は、正しい順序でどれですか。',
-	''));
+	'A'));
 	pushChoice('1, 2, 4, 5, 7, 8', false);
 	pushChoice('1, 2, 4, 6, 7, 8', false);
 	pushChoice('1, 2, 3, 4, 5, 7, 8', true);
@@ -279,7 +279,7 @@ function sortQuestion(){
 	// 14
 	//=============================================================================
 	q_list.push(new Question('Oracle Grid InfrastructureとOracle Relational Database Management System（RDBMS）のOSグループとユーザーについて正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('デフォルトでは、OSASMグループのメンバーは自動ストレージ管理およびRDBMSインスタンスにアクセスできます。', false);
 	pushChoice('Oracle Grid InfrastructureおよびOracle Databaseの所有者のプライマリ・グループは、Oracle Inventoryグループである必要があります。', true);
 	pushChoice('Oracle Grid Infrastructureインストールは、グリッド・ユーザーが所有する必要があります。', false);
@@ -292,7 +292,7 @@ function sortQuestion(){
 	// 15
 	//=============================================================================
 	q_list.push(new Question('Recovery Manager（RMAN）を使用したデータベースの複製について正しい説明を4つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('複製は、補助データベースインスタンスがターゲットデータベースインスタンスからバックアップセットをプルすることで実行できます。', true);
 	pushChoice('補助インスタンスへの接続は常に必要です。', true);
 	pushChoice('ターゲットデータベースのサブセットを複製できます。', true);
@@ -315,7 +315,7 @@ function sortQuestion(){
 	+ '\n  2  SOURCE_FILE_NAME_CONVERT = ("/u01/app/oracle/oradata/", "/u02/app/oracle/oradata/");'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('PDB1データファイルはすでに正しい場所に存在しています。', false);
 	pushChoice('コマンドを実行する前に、DBMS_PDB.CHECK_PLUG_COMPATIBILITYをCDB1で実行する必要があります。', false);
 	pushChoice('コマンドを実行する前に、PDB_FILE_NAME_CONVERTを設定する必要があります。', false);
@@ -327,12 +327,12 @@ function sortQuestion(){
 	// 17
 	//=============================================================================
 	q_list.push(new Question('Recovery Manager（RMAN）のイメージコピーを使用してプラットフォーム間でデータベースを転送することについて正しい説明を3つ選択しなさい。',
-	'答えは3つ'));
+	'B (「データベースは、エンディアン形式が異なるシステム間で転送できます。」も正しそう)'));
 	pushChoice('デフォルトでは、転送されたデータベースはOracle Managed Files（OMF）を使用します。', true);
 	pushChoice('データファイルは宛先システムで変換できます。', true);
 	pushChoice('データファイルはソースシステムで変換できます。', true);
 	pushChoice('転送されたデータベース用に新しいDBIDが自動的に作成されます。', false);
-	pushChoice('データベースは、エンディアン形式が異なるシステム間で転送できます。', true);
+	pushChoice('データベースは、エンディアン形式が異なるシステム間で転送できます。', false);
 	pushChoice('パスワードファイルはRMANによって自動的に変換されます。', false);
 	sortChoice();
 
@@ -344,7 +344,7 @@ function sortQuestion(){
 	+ '\n$ rhpctl move database -sourcehome Oracle_home_path -destinationhome Oracle_home_path'
 	+ '\n'
 	+ '\nこのコマンドを使用する目的として正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('既存のOracle Databaseホームを同じサーバー上のOracleソフトウェアの新しいリリースに切り替える。', false);
 	pushChoice('読み取り専用のOracleホームに切り替える。', false);
 	pushChoice('ロールバック操作の一部として前のOracleホームに戻る。', true);
@@ -356,7 +356,7 @@ function sortQuestion(){
 	// 19
 	//=============================================================================
 	q_list.push(new Question('CDBでLOCAL_UNDO_ENABLEDプロパティをfalseに変更することについて正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('変更後、必要な権限を持つ共通ユーザーのみが、CDB＆ROOTにUNDO表領域を作成できます。', true);
 	pushChoice('新しいPDBと既存のPDBは、CDB$ROOTのデフォルトのUNDO表領域を使用するように自動的に構成されます。', true);
 	pushChoice('変更後、CDB$ROOTに存在できるUNDO表領域は1つだけです。', false);
@@ -369,11 +369,11 @@ function sortQuestion(){
 	// 20
 	//=============================================================================
 	q_list.push(new Question('SQL Performance Analyzerについて正しい説明を2つ選択しなさい。',
-	'答えは2つ'));
+	'C'));
 	pushChoice('SQL Access Advisorと統合されています。', false);
 	pushChoice('SQLワークロードの応答時間に対するシステム変更の影響を予測します。', true);
 	pushChoice('分析タスクの各SQLステートメントの実行前後の統計を提供します。', true);
-	pushChoice('分析タスク内のすべてのSQLステートメントをグループとして詳細に分析できます。', true);
+	pushChoice('分析タスク内のすべてのSQLステートメントをグループとして詳細に分析できます。', false);
 	pushChoice('最初に同時に実行されたSQLステートメントは、SPAによって同時に実行されます。', false);
 	sortChoice();
 
