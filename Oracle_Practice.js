@@ -383,7 +383,7 @@ function sortQuestion(){
 	q_list.push(new Question('ユーザーがデータベースのパフォーマンスの低下について不満を言っています。'
 	+ '\nユーザーのセッションが特定のタイプのI/Oアクティビティを待機しているかどうかを確認したいとします。'
 	+ '\nセッションで少なくとも1回待機したすべての待機を表示するビューはどれですか？',
-	''));
+	'A'));
 	pushChoice('V$SESSION_EVENT', true);
 	pushChoice('V$SESSTAT', false);
 	pushChoice('V$SESSION_WAIT', false);
@@ -395,7 +395,7 @@ function sortQuestion(){
 	// 22
 	//=============================================================================
 	q_list.push(new Question('オプティマイザ統計の収集に関して正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('CDB$ROOTに接続しているときにDBMS_STATS.GATHER_DATABASE_STATSを実行すると、PDB$SEEDを除くすべての開いているPDBのオブジェクト統計が収集されます。', false);
 	pushChoice('読み取り/書き込みモードで開かれたPDBに接続されている間にDBMS_STATS.GATHER_DATABASE_STATSを実行すると、そのPDBのオブジェクト統計が収集されます。', true);
 	pushChoice('CDB$ROOTに接続している間にDBMS_STATS.GATHER_DATABASE_STATSを実行すると、CDB$ROOT内のオブジェクト統計のみが収集されます。', true);
@@ -428,9 +428,9 @@ function sortQuestion(){
 	+ '\nresource_manager_plan  MY_PLAN'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('プランで指定されていないPDBは、ステートメントを並行して実行できません。', false);
-	pushChoice('PDB3は、利用可能なすべての並列実行プロセスを時々使用できます。', true);
+	pushChoice('PDB3は、利用可能なすべての並列実行プロセスを時に使用できます。', true);
 	pushChoice('PDB1は、需要に関係なく、常に利用可能なシステムリソースの40％に制限されています。', false);
 	pushChoice('プランで指定されていないPDBは、使用可能なシステムリソースの最大16.5％を使用できます。', false);
 	pushChoice('PDB3は、十分な需要がある場合、利用可能なシステムリソースの少なくとも20％を受け取ることが保証されています。', true);
@@ -441,7 +441,7 @@ function sortQuestion(){
 	// 24
 	//=============================================================================
 	q_list.push(new Question('Oracle Database 19c以降のオペレーティングシステムスクリプトの実行について正しい説明を2つ選択しなさい。',
-	''));
+	'C'));
 	pushChoice('orainstRoot.shは、sudoまたはroot資格情報を使用して、データベースインストーラーによって自動的に実行できます。', true);
 	pushChoice('root.shは、root資格情報が提供されている場合にのみ、データベースインストーラーによって自動的に実行できます。', false);
 	pushChoice('sudoパスワードは、レスポンスファイルで指定できます。', false);
@@ -456,7 +456,7 @@ function sortQuestion(){
 	q_list.push(new Question('自動共有メモリ管理は、データベースインスタンスの1つに対して無効になっています。'
 	+ '\n一部のSQLステートメントは、過度のハード解析アクティビティが原因でパフォーマンスが低下し、パフォーマンスが低下します。'
 	+ '\n次のすべき行動として正しいものを選択しなさい。',
-	''));
+	'A'));
 	pushChoice('SQLアクセスアドバイザを実行します。', false);
 	pushChoice('共有プールのメモリアドバイザを実行します。', true);
 	pushChoice('SQLチューニングアドバイザを実行します。', false);
@@ -468,7 +468,7 @@ function sortQuestion(){
 	// 26
 	//=============================================================================
 	q_list.push(new Question('Oracle Database 19c以降のリリースのフラッシュバック機能について正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('フラッシュバックログは、DB_FLASHBACK_RETENTION_TARGETがすでに保持されている時間よりも低く設定されると、自動的にパージされます。', true);
 	pushChoice('フラッシュバックログは監視され、DB_FLASHBACK_RETENTION_TARGETで定義された保持期間を過ぎると、領域の圧迫があった場合にのみ、事前に削除されます。', true);
 	pushChoice('フラッシュバックログは監視され、DB_FLASHBACK_RETENTION_TARGETで定義された保存期間を過ぎると、領域の圧迫が発生する前に事前に削除されます。', false);
@@ -524,10 +524,10 @@ function sortQuestion(){
 	+ '\n"/u01/oradata/V122CDB1/516000726D464D04E054000C29704164/datafile/o1_mf_system_dmj30kld_.dbf"'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('データファイル24は、PDB2が開いている間に回復できます。', true);
-	pushChoice('データファイル24は、CDBが開いている間に回復する必要があります。', true);
-	pushChoice('データファイル24は、CDB$ROOTおよびPDB$SEEDが開いている間に回復できます。', false);
+	pushChoice('データファイル24は、CDBが開いている間に回復する必要があります。', false);
+	pushChoice('データファイル24は、CDB$ROOTおよびPDB$SEEDが開いている間に回復できます。', true);
 	pushChoice('CDBが開いている間は、データファイル24を復元できません。', false);
 	pushChoice('データファイル24は、PDB2が閉じている間に回復する必要があります。', false);
 	sortChoice();
@@ -536,7 +536,7 @@ function sortQuestion(){
 	// 28
 	//=============================================================================
 	q_list.push(new Question('RMANの二重化バックアップセットについて正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('二重化されたバックアップセットは、同じ数のファイルに対して、二重化されていないバックアップセットと同じ数のSBTチャネルを使用します。', false);
 	pushChoice('ディスクに書き込まれた非二重化バックアップセットは、すでにディスク上にあるバックアップセットをバックアップすることにより、ディスクに二重化できます。', true);
 	pushChoice('SBTに書き込まれた二重化されていないバックアップセットは、すでにテープ上にあるバックアップセットをバックアップすることにより、テープに二重化できます。', false);
