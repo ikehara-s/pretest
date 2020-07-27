@@ -549,7 +549,7 @@ function sortQuestion(){
 	// 29
 	//=============================================================================
 	q_list.push(new Question('RMANの永続的な構成設定、管理、およびそれらの影響について正しい説明を3つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('ターゲットデータベースの永続的なRMAN構成設定は常にターゲットの制御ファイルに格納されます。', true);
 	pushChoice('バックアップ場所に十分なスペースがない場合、リカバリ期間の保存ポリシーより古いバックアップは常に自動的に削除されます。', false);
 	pushChoice('冗長性保持ポリシーに基づいたobosleteである高速リカバリ領域（FRA）に書き込まれたバックアップは、自動的に削除してスペースを解放できます。', true);
@@ -563,7 +563,7 @@ function sortQuestion(){
 	// 30
 	//=============================================================================
 	q_list.push(new Question('オプティマイザ統計アドバイザーについて正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('手動でのみ実行できます。', false);
 	pushChoice('これは、DBMS_ADVISORパッケージの一部です。', false);
 	pushChoice('統計収集プロセスを改善するために変更を推奨できます。', true);
@@ -580,7 +580,7 @@ function sortQuestion(){
 	+ '\nRMAN> BACKUP RECOVERY FILES;'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('現在のFRAに含まれておらず、まだバックアップされていないすべてのOracleリカバリファイルがバックアップされます。', true);
 	pushChoice('まだバックアップされていない、現在のFRA内のすべてのOracle以外のファイルがバックアップされます。', false);
 	pushChoice('まだバックアップされていない、現在のFRA内のすべてのOracleリカバリファイルがバックアップされます。', true);
@@ -591,14 +591,14 @@ function sortQuestion(){
 	//=============================================================================
 	// 32
 	//=============================================================================
-	q_list.push(new Question('Oracle dataabse方法論について正しい説明を2つ選択しなさい。',
-	''));
-	pushChoice('Oracle Databaseの時間モデルを使用して、チューニングが最も必要なデータベースとインスタンスの領域を見つける必要があります。', false);
-	pushChoice('ユーザーがパフォーマンスに満足したら、チューニングアクティビティを停止する必要があります。', false);
-	pushChoice('パフォーマンスに関する合意されたサービスレベルに達したら、チューニングアクティビティを停止する必要があります。', true);
+	q_list.push(new Question('Oracle database方法論について正しい説明を2つ選択しなさい。',
+	'C'));
+	pushChoice('Oracle Databaseの時間モデルを使用して、チューニングが最も必要なデータベースとインスタンスの領域を見つける必要があります。', true);
+	pushChoice('ユーザーがパフォーマンスに満足したら、チューニングアクティビティを停止する必要があります。', true);
+	pushChoice('パフォーマンスに関する合意されたサービスレベルに達したら、チューニングアクティビティを停止する必要があります。', false);
 	pushChoice('ファイルシステムを調整する前に、データベースインスタンスのメモリを常に調整する必要があります。', false);
 	pushChoice('ファイルシステムを調整する前に、SQLステートメントを常に調整する必要があります。', false);
-	pushChoice('アラートログは、チューニングが最も必要なデータベースとインスタンスの領域を見つけるために使用する必要があります。', true);
+	pushChoice('アラートログは、チューニングが最も必要なデータベースとインスタンスの領域を見つけるために使用する必要があります。', false);
 	sortChoice();
 	
 	//=============================================================================
@@ -606,11 +606,11 @@ function sortQuestion(){
 	//=============================================================================
 	q_list.push(new Question('Oracle Fast Recovery Area（FRA）にバックアップしているときに、バックアップに時間がかかりすぎてパフォーマンスのボトルネックが疑われます。'
 	+ '\nこれらの問題の診断と調整について正しい説明を3つ選択しなさい。',
-	''));
+	'C (答えは3つ)'));
 	pushChoice('RMAN BACKUP VALIDATEコマンドに実際のバックアップとほぼ同じ時間がかかる場合は、読み取りと書き込みの両方のI/Oがボトルネックになっている可能性があります。', false);
 	pushChoice('DBWR_IO_SLAVESをゼロ以外の値に設定すると、同期I/Oを使用するときのバックアップパフォーマンスが向上します。', true);
 	pushChoice('RMAN BACKUP VALIDATEコマンドの実行時間が実際のバックアップよりも著しく少ない場合は、書き込みI/Oがボトルネックになっている可能性があります。', true);
-	pushChoice('RMAN BACKUP VALIDATEコマンドに実際のバックアップとほぼ同じ時間がかかる場合は、読み取りI/Oがボトルネックになっている可能性があります。', false);
+	pushChoice('RMAN BACKUP VALIDATEコマンドに実際のバックアップとほぼ同じ時間がかかる場合は、読み取りI/Oがボトルネックになっている可能性があります。', true);
 	pushChoice('V$BACKUP_SYNC_IO.DISCRETE_BYTES_PER_SECONDの値が高いデータファイルは、同期I/Oを使用するときにパフォーマンスのボトルネックになる可能性があります。', false);
 	pushChoice('DBWR_IO_SLAVESをゼロ以外の値に設定すると、非同期I/Oを使用するときのバックアップパフォーマンスが向上します。', false);
 	pushChoice('V$BACKUP_ASYNC_IO.SHORT_WAITSの値が高いデータファイルは、非同期I/Oを使用するときにパフォーマンスのボトルネックになる可能性があります。', true);
@@ -642,7 +642,7 @@ function sortQuestion(){
 	+ '\nSQL> INSERT INTO user2.dept VALUES(1, "IT");'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('セッションがPDB2に接続したとき、USER1.EMPへの挿入はコミットされないままです。', true);
 	pushChoice('USER1.EMPへの挿入は、セッションがUSER2.DEPTに行を挿入したときにコミットされました。', false);
 	pushChoice('親コンテナー内のアクティブなトランザクションのため、USER2.DEPTへの挿入は失敗します。', true);
@@ -673,7 +673,7 @@ function sortQuestion(){
 	+ '\n$ $ORACLE_HOME/jdk/bin/java -jar preupgrade.jar TERMINAL TEXT'
 	+ '\n'
 	+ '\nどのデータベースに対してフィックスアップスクリプトが作成されますか？',
-	''));
+	'A'));
 	pushChoice('CDB1、PDB$SEED、PDB1、PDB2', false);
 	pushChoice('PDB$SEED、PDB1、PDB2', false);
 	pushChoice('CDB1、PDB$SEED', false);
@@ -685,8 +685,8 @@ function sortQuestion(){
 	// 36
 	//=============================================================================
 	q_list.push(new Question('Oracle Flashback機能について正しい説明を2つ選択しなさい。',
-	''));
-	pushChoice('フラッシュバックコマンドは、REDOレコードをオンラインREDOログファイルおよびアーカイブREDOログファイルから取得できます。', false);
+	'A'));
+	pushChoice('フラッシュバック問い合わせは、REDOレコードをオンラインREDOログファイルおよびアーカイブREDOログファイルから取得できます。', false);
 	pushChoice('フラッシュバックバージョン問い合わせは、REDOレコードをオンラインREDOログファイルおよびアーカイブREDOログファイルから取得できます。', false);
 	pushChoice('フラッシュバック表は列の削除をフラッシュバックできます。', false);
 	pushChoice('フラッシュバックドロップは、テーブルを修復するときにインデックスも修復できます。', true);
@@ -697,7 +697,7 @@ function sortQuestion(){
 	// 37
 	//=============================================================================
 	q_list.push(new Question('アプリケーションシードのプラガブルデータベース（PDB）について正しい説明を3つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('アプリケーションがアップグレードされると、アプリケーションルートPDBと自動的に同期されます。', false);
 	pushChoice('アプリケーションコンテナが既に作成されている場合は、アプリケーションコンテナに追加できません。', false);
 	pushChoice('アプリケーションシードPDBを複製して作成された新しいアプリケーションPDBには、複製の完了後に、古いバージョンのアプリケーションをインストールできます。', true);
@@ -727,7 +727,7 @@ function sortQuestion(){
 	+ '\nSQL> SHUTDOWN IMMEDIATE'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('PDB1のコミットされていないトランザクションがロールバックされました。', true);
 	pushChoice('PDB1は閉じられます。', true);
 	pushChoice('CDB1とPDB1のコミットされていないトランザクションがロールバックされました。', false);
@@ -739,7 +739,7 @@ function sortQuestion(){
 	// 39
 	//=============================================================================
 	q_list.push(new Question('自動ワークロードリポジトリ（AWR）、自動データベース診断モニター（ADDM）、および管理性モニター（MMON）バックグラウンドプロセスについて正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('ADDMは、バッファキャッシュの圧縮を推奨できます。', true);
 	pushChoice('ADDMは、バッファキャッシュの拡張を推奨できます。', true);
 	pushChoice('デフォルトでは、MMONは30分ごとにAWRスナップショットを作成します。', false);
