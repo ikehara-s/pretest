@@ -1032,7 +1032,7 @@ function sortQuestion(){
 	// 56
 	//=============================================================================
 	q_list.push(new Question('Oracle Database Configuration Assistant（DBCA）テンプレートについて正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('トランザクション処理の汎用テンプレートは、同時実行性と回復性が重要な基準である場合に最適です。', true);
 	pushChoice('Oracle DBCAテンプレートは、論理構造のみを保存でき、データベースファイルは保存できません。', false);
 	pushChoice('新しいテンプレートは、既存のユーザー作成テンプレートを変更することによってのみ作成できます。', false);
@@ -1056,12 +1056,12 @@ function sortQuestion(){
 	+ '\nNO                  NO             YES                   MAPTABLE'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
-	''));
+	'C'));
 	pushChoice('CONTAINERS句は、REVENUEテーブルのクエリでは使用できません。', false);
 	pushChoice('REVENUEテーブルは、リストパーティションテーブルである必要があります。', false);
 	pushChoice('MAPTABLEテーブルは、REVENUEテーブルに一般的に使用される列の論理パーティションキーを定義します。', true);
-	pushChoice('MAPTABLEテーブルは、メタデータにリンクされたテーブルです。', true);
-	pushChoice('REVENUEテーブルのコンテナマップは存在しますが、有効になっていません。', false);
+	pushChoice('MAPTABLEテーブルは、メタデータにリンクされたテーブルです。', false);
+	pushChoice('REVENUEテーブルのコンテナマップは存在しますが、有効になっていません。', true);
 	pushChoice('REVENUEテーブルパーティションは、PDB間で自動的にプルーニングされません。', false);
 	sortChoice();
 	
