@@ -470,8 +470,8 @@ function sortQuestion(){
 	q_list.push(new Question('Oracle Database 19c以降のリリースのフラッシュバック機能について正しい説明を2つ選択しなさい。',
 	'B'));
 	pushChoice('フラッシュバックログは、DB_FLASHBACK_RETENTION_TARGETがすでに保持されている時間よりも低く設定されると、自動的にパージされます。', true);
-	pushChoice('フラッシュバックログは監視され、DB_FLASHBACK_RETENTION_TARGETで定義された保持期間を過ぎると、領域の圧迫があった場合にのみ、事前に削除されます。', true);
-	pushChoice('フラッシュバックログは監視され、DB_FLASHBACK_RETENTION_TARGETで定義された保存期間を過ぎると、領域の圧迫が発生する前に事前に削除されます。', false);
+	pushChoice('フラッシュバックログは監視され、DB_FLASHBACK_RETENTION_TARGETで定義された保持期間を過ぎると、領域の圧迫があった場合にのみ、事前に削除されます。', false);
+	pushChoice('フラッシュバックログは監視され、DB_FLASHBACK_RETENTION_TARGETで定義された保存期間を過ぎると、領域の圧迫が発生する前に事前に削除されます。', true);
 	pushChoice('フラッシュバックログは、DB_FLASHBACK_RETENTION_TARGETで定義された保持期間よりも古いものとして監視され、管理者が作成したイベントトリガーによって削除できます。', false);
 	pushChoice('フラッシュバックログは、DB_FLASHBACK_RETENTION_TARGETの値が変更されるたびに自動的にパージされます。', false);
 	sortChoice();
@@ -760,8 +760,8 @@ function sortQuestion(){
 	+ '\n'
 	+ '\n正常に実行されるオプションの説明として正しいものを3つ選択しなさい。',
 	'B'));
-	pushChoice('FILE_NAME_CONVERT句をステートメントに追加し、PDB_FILE_NAME_CONVERTパラメータを設定します。', false);
-	pushChoice('CREATE_FILE_DEST句のみをステートメントに追加します。', true);
+	pushChoice('FILE_NAME_CONVERT句をステートメントに追加し、PDB_FILE_NAME_CONVERTパラメータを設定します。', true);
+	pushChoice('CREATE_FILE_DEST句のみをステートメントに追加します。', false);
 	pushChoice('PDB_FILE_NAME_CONVERTパラメータのみを設定します。', true);
 	pushChoice('PDB_FILE_NAME_CONVERTパラメータを設定し、OMFを有効にします。', false);
 	pushChoice('OMFのみを有効にします。', true);
