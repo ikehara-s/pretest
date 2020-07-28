@@ -1071,7 +1071,7 @@ function sortQuestion(){
 	q_list.push(new Question('コンテナーデータベースCDB1には、アプリケーションコンテナーHR_ROOTとアプリケーションPDB HR_PDB1があります。'
 	+ '\nあなたHR_ROOTを含まないコンテナーデータベースCDB2にHR_PDB1を複製するために必要な権限を持っている。'
 	+ '\n常に正しい説明を2つ選択しなさい。',
-	''));
+	'C'));
 	pushChoice('CDB1とCDB2は共有UNDOモードでなければなりません。', false);
 	pushChoice('共通ユーザーは、CREATE PLUGGABLE DATABASE権限を持つCDB2に存在している必要があります。', true);
 	pushChoice('CDB1のHR_PDB1内のすべてのトランザクションは、クローン作成プロセスが開始する前にコミットする必要があります。', false);
@@ -1083,7 +1083,7 @@ function sortQuestion(){
 	// 59
 	//=============================================================================
 	q_list.push(new Question('Recovery Manager（RMAN）を使用せずに実行されるバックアップ、復元、およびリカバリー操作について正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('O/Sユーティリティを使用してNOARCHIVELOGモードでデータベースをバックアップするには、データベースインスタンスを起動し、データベースをMOUNT状態にする必要があります。', false);
 	pushChoice('O/Sユーティリティを使用してARCHIVELOGモードでデータベースをバックアップするには、データベースインスタンスを起動し、データベースをMOUNT状態にする必要があります。', false);
 	pushChoice('Oracleデータベースは、O/Sユーティリティを使用してコピーしたバックアップファイルから復元できます。', true);
@@ -1114,7 +1114,7 @@ function sortQuestion(){
 	+ '\nSQL> STARTUP MOUNT'
 	+ '\n...'
 	+ '\nDatabase mounted.',
-	''));
+	'A'));
 	pushChoice('PDB1とPDB2はMOUNT状態です。', true);
 	pushChoice('REDOログが開かれます。', false);
 	pushChoice('PDB1とPDB2は読み取り専用状態です。', false);
@@ -1126,7 +1126,7 @@ function sortQuestion(){
 	// 61
 	//=============================================================================
 	q_list.push(new Question('Oracle Grid Infrastructureのアップグレードについて正しい説明を3つ選択しなさい。',
-	''));
+	'C'));
 	pushChoice('直接アップグレードは、直前のバージョンのOracle Grid Infrastructureからのみ実行できます。', false);
 	pushChoice('新しいバージョンは、既存のバージョンと同じサーバー上の別のOracle Grid Infrastructureホームにインストールされます。', true);
 	pushChoice('既存のOracleベースを使用できます。', true);
@@ -1142,7 +1142,7 @@ function sortQuestion(){
 	+ '\n完全なRMANバックアップが存在しますが、トレースする制御ファイルのバックアップが取られていません。'
 	+ '\nメディア障害が発生しました。'
 	+ '\n不完全リカバリが必要なシナリオとして正しいものを2つ選択しなさい？',
-	''));
+	'B'));
 	pushChoice('SYSAUX表領域データファイルを失った後。', false);
 	pushChoice('INACTIVEオンラインREDOロググループのすべてのメンバーを失った後。', false);
 	pushChoice('CURRENTオンラインREDOロググループのすべてのメンバーを失った後。', true);
@@ -1154,7 +1154,7 @@ function sortQuestion(){
 	// 63
 	//=============================================================================
 	q_list.push(new Question('インスタンスリカバリについて正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('アーカイブされたログが欠落している場合は不可能です。', false);
 	pushChoice('データベースがオープン状態になった後、自動的に実行されます。ただし、リカバリが必要なブロックは、リカバリされるまで使用できません。', false);
 	pushChoice('FAST_START_MTTR_TARGETを低い値に設定すると、ダーティバッファーがディスクに頻繁に書き込まれるようになり、インスタンスの回復中に必要なI/Oの数が減るため、インスタンスの回復時間が短縮されます。', true);
@@ -1167,7 +1167,7 @@ function sortQuestion(){
 	// 64
 	//=============================================================================
 	q_list.push(new Question('Oracleオプティマイザ統計、それらの使用、および収集について正しい説明を2つ選択しなさい。',
-	''));
+	'C'));
 	pushChoice('索引を使用してテーブルにアクセスするコストを評価するときは、テーブルの行数が考慮されます。', false);
 	pushChoice('索引を使用するコストを評価するときに、インデックスバランスのとれたB*Treeの高さが考慮されます。', true);
 	pushChoice('統計アドバイザーは、統計を収集する最良の方法を推奨するのに役立ちます。', true);
@@ -1183,7 +1183,7 @@ function sortQuestion(){
 	+ '\nPDB2のデータファイル24が削除されたため、復元して回復する必要があります。'
 	+ '\n存在する唯一のRMANバックアップは、CDB$ROOTに接続されているときにBACKUP DATABASEコマンドで作成されました。'
 	+ '\n正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('データファイル24は、PDB2に接続されている間のみリカバリできます。', false);
 	pushChoice('データファイル24は、CDB$ROOTに接続しているときにリストアおよびリカバリできます。', true);
 	pushChoice('データファイル24は、CDB$ROOTに接続している間のみリストアできます。', false);
@@ -1196,12 +1196,12 @@ function sortQuestion(){
 	// 66
 	//=============================================================================
 	q_list.push(new Question('データポンプを使用した非CDBとPDB間のデータ移動について正しい説明を2つ選択しなさい。',
-	''));
+	'C'));
 	pushChoice('非CDBまたはPDBのいずれかに完全なエクスポートをインポートする際、表領域は必要に応じて自動的に作成されます。', false);
-	pushChoice('Oracleは、非CDBからPDBにスキーマを移動するときに、従来のデータベースユーザーをローカルユーザーに変換しようとします。', false);
+	pushChoice('Oracleは、非CDBからPDBにスキーマを移動するときに、従来のデータベースユーザーをローカルユーザーに変換しようとします。', true);
 	pushChoice('非CDBをCDBにインポートすると、新しいPDBが自動的に作成されます。', false);
 	pushChoice('Oracleは、スキーマをPDBから非CDBに移動するときに、共通ユーザーを従来のユーザーに変換しようとします。', true);
-	pushChoice('PDBから非CDBへのデータの移動は、トランスポータブル表領域のエクスポートとインポートを使用してのみ可能です。', true);
+	pushChoice('PDBから非CDBへのデータの移動は、トランスポータブル表領域のエクスポートとインポートを使用してのみ可能です。', false);
 	pushChoice('非CDBからPDBへのデータの移動は、従来のエクスポートとインポートを使用した場合にのみ可能です。', false);
 	sortChoice();
 	
@@ -1209,12 +1209,12 @@ function sortQuestion(){
 	// 67
 	//=============================================================================
 	q_list.push(new Question('データベースをアップグレードした後の表データの移行に使用できる方法として正しいものを3つ選択しなさい。',
-	'答えは3つ'));
+	'B'));
 	pushChoice('データベースリプレイ', false);
 	pushChoice('SQL Developer', true);
 	pushChoice('Oracle Data Pump', true);
 	pushChoice('O/Sコピーユーティリティー', false);
-	pushChoice('Database Upgrade Assistant', true);
+	pushChoice('Database Upgrade Assistant', false);
 	pushChoice('CREATE TABLE AS SELECTコマンド', true);
 	sortChoice();
 	
