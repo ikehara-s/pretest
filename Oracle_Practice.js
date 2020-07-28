@@ -1222,7 +1222,7 @@ function sortQuestion(){
 	// 68
 	//=============================================================================
 	q_list.push(new Question('Oracleインスタンスの回復について正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('リカバリは、CURRENT REDOロググループの先頭から開始されます。', false);
 	pushChoice('リカバリは、インスタンス障害が発生する前にデータベースライターによって計算された最後のチェックポイント位置から始まります。', false);
 	pushChoice('ACTIVE REDOロググループの先頭から、または他にACTIVEなグループがない場合はCURRENTロググループの先頭からリカバリが開始されます。', true);
@@ -1247,7 +1247,7 @@ function sortQuestion(){
 	+ '\n$ srvctl start database -d ORCL'
 	+ '\n'
 	+ '\n結果はどうなりますか？',
-	''));
+	'B'));
 	pushChoice('ORCLデータベース、Oracle ASMインスタンス、+DATAおよび+FRAディスクグループ、およびLISTENERが起動します。', true);
 	pushChoice('ORCLデータベースインスタンスのみが開始されます。', false);
 	pushChoice('ORCLデータベースとASMインスタンスのみが起動されます。', false);
@@ -1259,12 +1259,12 @@ function sortQuestion(){
 	// 70
 	//=============================================================================
 	q_list.push(new Question('TARGET接続なしのRecovery Manager（RMAN）複製について正しい説明を4つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('複製されるデータベースのバックアップが、データベースがNOARCHIVELOGモードのときに行われた場合は、NOREDO句を使用する必要があります。', true);
 	pushChoice('TARGETインスタンスへの接続が存在しない場合は、UNDO TABLESPACE句が常に必要です。', false);
-	pushChoice('RMANはデータベースのバックアップをプッシュして、ネットワーク経由で補助インスタンスに複製します。', true);
+	pushChoice('RMANはデータベースのバックアップをプッシュして、ネットワーク経由で補助インスタンスに複製します。', false);
 	pushChoice('NOREDO句は、データベースがARCHIVELOGモードのときに複製されるデータベースのバックアップが取られた場合に使用できます。', false);
-	pushChoice('複製されるデータベースのRMAN SBTベースのバックアップは、補助インスタンスで使用できます。', false);
+	pushChoice('複製されるデータベースのRMAN SBTベースのバックアップは、補助インスタンスで使用できます。', true);
 	pushChoice('UNDO TABLESPACE句は、リカバリカタログへの接続が存在せず、TARGETデータベースが閉じている場合は常に必要です。', true);
 	pushChoice('UNDO TABLESPACE句は、リカバリカタログへの接続が存在せず、TARGETデータベースが開かれている場合は常に必要です。', false);
 	pushChoice('複製されるデータベースのRMANディスクベースのバックアップは、補助インスタンスで使用できます。', true);
@@ -1274,7 +1274,7 @@ function sortQuestion(){
 	// 71
 	//=============================================================================
 	q_list.push(new Question('正しい説明を3つ選択しなさい。',
-	''));
+	'D'));
 	pushChoice('アプリケーションルート内のオブジェクトの仮想プライベートデータベース（VPD）ポリシーは、アプリケーションコンテナーに含まれるすべてのアプリケーションPDBと自動的に同期されます。', false);
 	pushChoice('アプリケーション共通のTSDPポリシーは常にコンテナ固有です。', true);
 	pushChoice('アプリケーション共通の透過的セキュリティデータ保護（TSDP）ポリシーは、アプリケーションのインストール/パッチのBEGIN-ENDブロック内でのみ作成できます。', false);
@@ -1288,7 +1288,7 @@ function sortQuestion(){
 	// 72
 	//=============================================================================
 	q_list.push(new Question('自動ワークロードリポジトリ（AWR）について正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('デフォルトでは、AWRスナップショットは60分ごとに取得されます。', true);
 	pushChoice('その収集レベルは、STATISTICS_LEVELデータベースパラメータの値によって決まります。', true);
 	pushChoice('デフォルトでは、AWRスナップショットは7日間保持されます。', false);
@@ -1300,7 +1300,7 @@ function sortQuestion(){
 	// 73
 	//=============================================================================
 	q_list.push(new Question('自動ブロック修復について正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('自動ブロック修復では、DB_BLOCK_CHECKING = TRUEの場合、ノースタンバイデータベースのブロックを修復できます。', false);
 	pushChoice('フィジカルスタンバイデータベースで自動ブロック修復を実行するには、フィジカルスタンバイデータベースでリアルタイムクエリを有効にする必要があります。', true);
 	pushChoice('フィジカルスタンバイデータベースで自動ブロック修復を実行するには、プライマリデータベースでリアルタイムクエリを有効にする必要があります。', false);
@@ -1318,7 +1318,7 @@ function sortQuestion(){
 	+ '\n  ADMIN USER admin1 IDENTIFIED BY app_123 ROLES=(CONNECT);'
 	+ '\n'
 	+ '\n正しい説明を3つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('APP1アプリケーションコンテナに作成されるアプリケーションPDBは、APP1$SEEDから複製されます。', false);
 	pushChoice('APP1のアプリケーションシードPDBが作成されます。', false);
 	pushChoice('APP1のアプリケーションルートPDBが作成されます。', true);
@@ -1331,7 +1331,7 @@ function sortQuestion(){
 	// 75
 	//=============================================================================
 	q_list.push(new Question('RMAN暗号化について正しい説明を2つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('RMAN暗号化キーは、データベースキーストアに格納されます。', true);
 	pushChoice('RMANは、Oracleデータベースのパスワードファイルを暗号化できます。', false);
 	pushChoice('暗号化に使用されたパスワードとキーストアの両方が利用可能な場合にのみ、デュアルモード暗号化バックアップを復元できます。', false);
@@ -1343,7 +1343,7 @@ function sortQuestion(){
 	// 76
 	//=============================================================================
 	q_list.push(new Question('LinuxでのOracleデータベースのインストールの実行について正しい説明を3つ選択しなさい。',
-	''));
+	'C'));
 	pushChoice('runfixup.shスクリプトは、不足しているRPMをインストールできます。', false);
 	pushChoice('Oracleデータベースのインストール所有者、Oracle Inventoryグループ、およびOracle管理特権グループを構成するには、Oracle Preinstallation RPMを使用する必要があります。', false);
 	pushChoice('Oracleデータベースサーバーでサポートされている言語を選択できます。', true);
@@ -1357,12 +1357,12 @@ function sortQuestion(){
 	// 77
 	//=============================================================================
 	q_list.push(new Question('Oracle Database 19c以降のリリースのRecovery Manager（RMAN）について正しい説明を3つ選択しなさい。',
-	''));
+	'C'));
 	pushChoice('RMANがターゲットとしてプラガブルデータベースに接続できるのは、RMAN仮想プライベートカタログが使用されている場合のみです。', false);
-	pushChoice('RMANカタログが使用されている場合、RMANはターゲットとしてプラガブルデータベースに接続することが常に可能です。', false);
+	pushChoice('RMANカタログが使用されている場合、RMANはターゲットとしてプラガブルデータベースに接続することが常に可能です。', true);
 	pushChoice('コンテナデータベースの登録に使用される仮想プライベートカタログは、プラガブルデータベースに作成する必要があります。', false);
 	pushChoice('コンテナデータベースの登録に使用される仮想プライベートカタログは、プラガブルデータベースに作成できます。', true);
-	pushChoice('RMANは、プラガブルデータベースにターゲットとして接続することが常に可能です。', true);
+	pushChoice('RMANは、プラガブルデータベースにターゲットとして接続することが常に可能です。', false);
 	pushChoice('コンテナデータベースの登録に使用される仮想プライベートカタログは、非コンテナデータベースに作成できます。', true);
 	sortChoice();
 	
@@ -1370,7 +1370,7 @@ function sortQuestion(){
 	// 78
 	//=============================================================================
 	q_list.push(new Question('Oracle 19c以降のリリースで正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('パスワードファイルの場所が変更されると、新しい場所がOracleサーバーによって自動的に使用されます。', false);
 	pushChoice('スキーマのみのアカウントには、管理者権限を付与できます。', true);
 	pushChoice('オラクル社が提供するアカウントはすべてスキーマのみのアカウントです。', false);
@@ -1390,7 +1390,7 @@ function sortQuestion(){
 	+ '\n  RESTORE POINT "OLD_CONFIGURATION";'
 	+ '\n'
 	+ '\n正しい説明を3つ選択しなさい。',
-	''));
+	'A'));
 	pushChoice('復元ポイントは、アーカイブバックアップが作成されてから2年後に保存されるシステム変更番号（SCN）のラベルです。', false);
 	pushChoice('自己完結型アーカイブバックアップのデータファイルバックアップは、保存ポリシーに関係なく、2年間不要とは見なされません。', true);
 	pushChoice('このバックアップ後に作成されたすべてのアーカイブログは2年間保持されます。', false);
