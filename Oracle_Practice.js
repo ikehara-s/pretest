@@ -896,7 +896,7 @@ function sortQuestion(){
 	+ '\nPluggable database altered.'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('APP1_USER1はPDB1に作成できます。', false);
 	pushChoice('APP1_USER1はCDB1に作成できます。', false);
 	pushChoice('APP1_USER1は、APP1_ROOTに含まれる各アプリケーションPDBで異なる権限を持つことができます。', true);
@@ -909,7 +909,7 @@ function sortQuestion(){
 	// 49
 	//=============================================================================
 	q_list.push(new Question('Oracle Database環境で常に考慮または実装する必要があるパフォーマンス計画のファセットとして正しいものを2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('すべてのテーブルの主キーを定義して、すべてのクエリを高速化する。', true);
 	pushChoice('チェック制約を使用して更新を高速化する。', false);
 	pushChoice('結合を高速化するためにすべてのテーブルの外部キーを定義する。', false);
@@ -921,7 +921,7 @@ function sortQuestion(){
 	// 50
 	//=============================================================================
 	q_list.push(new Question('Database Upgrade Assistant（DBUA）によって実行される3つのアクションはどれですか？',
-	''));
+	'B'));
 	pushChoice('utlrp.sqlを使用して、保存されているすべてのPL / SQLコードを再コンパイルします。', false);
 	pushChoice('ごみ箱を空にします。', true);
 	pushChoice('前提条件チェックを実行して、Oracleデータベースがアップグレードの準備ができているかどうかを確認します。', true);
@@ -934,7 +934,7 @@ function sortQuestion(){
 	// 51
 	//=============================================================================
 	q_list.push(new Question('テープドライブが2つしかない場合に、メディアマネージャーを使用してバックアップをテープに書き込むときのRMANバックアップについて正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('RMAN圧縮が構成されていない場合でも、SBTテープ圧縮を使用できます。', true);
 	pushChoice('この構成でSBTデバイスに書き込まれるバックアップセットには、最大2つのバックアップピースを含めることができます。', false);
 	pushChoice('この構成でSBTデバイスに書き込まれるバックアップには、最大2つのバックアップセットを含めることができます。', false);
@@ -952,7 +952,7 @@ function sortQuestion(){
 	+ '\nuid=54321 (oracle) gid=54321(oinstall) group=54321(oinstall), 54322(dba)'
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
-	''));
+	'B'));
 	pushChoice('oracleはOracle Inventoryの所有者になります。', true);
 	pushChoice('oracleは、すべてのOracle Databaseインストールの所有者でなければなりません。', false);
 	pushChoice('oracleはOracle Databaseインストールを所有できますが、Oracle Grid Infrastructureインストールは所有できません。', false);
@@ -985,7 +985,7 @@ function sortQuestion(){
 	+ '\n  "/u01/app/oracle/oradata/CDB1/controlfile/controlfile01.ctl";'
 	+ '\n'
 	+ '\n結果はどうなりますか？',
-	''));
+	'A'));
 	pushChoice('"$ORACLE_HOME/dbs/cdb1/CDB1/controlfile02.ctl"が作成されます', false);
 	pushChoice('"/u01/app/oralce/oradata/CDB1/controlfile/controlfile02.ctl"が作成されます。', false);
 	pushChoice('"/u02/app/oracle/fast_recover_area/cdb1/CDB1/controlfile02.ctl"が再作成されます。', true);
@@ -1006,11 +1006,11 @@ function sortQuestion(){
 	+ '\n6. SYSBACKUP権限をリカバリカタログスキーマの所有者に付与します。'
 	+ '\n'
 	+ '\nCREATE CATALOGコマンドを実行する前に実行する必要がある最小アクションはどれですか？',
-	''));
+	'B'));
 	pushChoice('2, 4, 5, 6', false);
 	pushChoice('1, 2, 3, 4, 5, 6', false);
-	pushChoice('1, 2, 4, 5', true);
-	pushChoice('2, 4, 5', false);
+	pushChoice('1, 2, 4, 5', false);
+	pushChoice('2, 4, 5', true);
 	pushChoice('1, 3, 4, 5', false);
 	sortChoice();
 	
