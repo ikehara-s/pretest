@@ -760,8 +760,8 @@ function sortQuestion(){
 	+ '\n'
 	+ '\n正常に実行されるオプションの説明として正しいものを3つ選択しなさい。',
 	'B'));
-	pushChoice('FILE_NAME_CONVERT句をステートメントに追加し、PDB_FILE_NAME_CONVERTパラメータを設定します。', true);
-	pushChoice('CREATE_FILE_DEST句のみをステートメントに追加します。', false);
+	pushChoice('FILE_NAME_CONVERT句をステートメントに追加し、PDB_FILE_NAME_CONVERTパラメータを設定します。', false);
+	pushChoice('CREATE_FILE_DEST句のみをステートメントに追加します。', true);
 	pushChoice('PDB_FILE_NAME_CONVERTパラメータのみを設定します。', true);
 	pushChoice('PDB_FILE_NAME_CONVERTパラメータを設定し、OMFを有効にします。', false);
 	pushChoice('OMFのみを有効にします。', true);
