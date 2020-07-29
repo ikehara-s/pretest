@@ -897,9 +897,9 @@ function sortQuestion(){
 	+ '\n'
 	+ '\n正しい説明を2つ選択しなさい。',
 	'B'));
-	pushChoice('APP1_USER1はPDB1に作成できます。', false);
+	pushChoice('APP1_USER1はPDB1に作成できます。', true);
 	pushChoice('APP1_USER1はCDB1に作成できます。', false);
-	pushChoice('APP1_USER1は、APP1_ROOTに含まれる各アプリケーションPDBで異なる権限を持つことができます。', true);
+	pushChoice('APP1_USER1は、APP1_ROOTに含まれる各アプリケーションPDBで異なる権限を持つことができます。', false);
 	pushChoice('C##APP_USER1はCDB1に作成できます。', true);
 	pushChoice('P1_USER1はCDB1に作成できます。', false);
 	pushChoice('C##USER1は、CDB1のすべてのPDBで同じ特権とロールを付与されます。', false);
